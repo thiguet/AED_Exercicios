@@ -1,33 +1,60 @@
 package GUI;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class MainPageGUI extends JFrame {
+public class MainPageGUI extends GUI {
 
-		public MainPageGUI () {
-			super("NetLix Series Manager");
-			super.setDefaultLookAndFeelDecorated(true);
-			super.setLayout( new GridLayout ());
-			super.setVisible(true);
-			super.setSize(400, 1200);
-			super.setLocation(800, 100);
-			super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			this.initializeGUI();
-		}
+	JButton listarSeries,
+			listarFavoritas;
 		
-		private void initializeGUI () {
-			JPanel panel = new JPanel();
-			
-			JButton listarSeries 	= new JButton ("Buscar Séries");
-			JButton listarFavoritas = new JButton ("Favoritos");
-			
-			panel.add(listarSeries);
-			panel.add(listarFavoritas);
-			
-			super.add(panel);
-		}
+	public MainPageGUI () {
+		super();
+		super.setDefaultLookAndFeelDecorated(true);
+		this.initializeGUI();
+	}
+	
+	private void initializeGUI () {
+		JPanel panel = new JPanel();
+		
+		this.listarSeries 	 = new JButton ("Buscar Séries");
+		this.listarFavoritas = new JButton ("Favoritos");
+		
+		panel.add(listarSeries);
+		panel.add(listarFavoritas);
+		
+		super.add(panel);
+		
+		initializeComponents();
+	}
+
+	private void initializeComponents() {
+
+		this.listarSeries.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		    	exibirTelaSeries();
+		    }
+		});
+
+		this.listarFavoritas.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		    	exibirTelaFavoritos();
+		    }
+		});		
+	}
+
+	private void exibirTelaFavoritos () {
+    	new FavoritosGUI();
+    	super.dispose();
+	}
+
+	private void exibirTelaSeries () {
+    	new SeriesGUI();
+    	super.dispose();
+	}
 }

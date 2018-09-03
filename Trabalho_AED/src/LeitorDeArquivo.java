@@ -11,7 +11,7 @@ public class LeitorDeArquivo {
 	
 	// private static LeitorDeArquivo leitorArq = new LeitorDeArquivo ();
 	
-	private static File arq;
+	// private static File arq;
 	
 	private LeitorDeArquivo() {}
 	

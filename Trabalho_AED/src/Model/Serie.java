@@ -6,8 +6,8 @@ public class Serie {
     				pais,
             		idioma,
             		emissora,
-            		transmissao;
-	private float   duracao;
+            		transmissao,
+            		duracao;
     private int    	nroTemporadas,
     				nroEpisodios;
     	            
@@ -59,11 +59,11 @@ public class Serie {
 		this.transmissao = transmissao;
 	}
 	
-	public float getDuracao() {
+	public String getDuracao() {
 		return duracao;
 	}
 	
-	public void setDuracao(float duracao) {
+	public void setDuracao(String duracao) {
 		this.duracao = duracao;
 	}
 	

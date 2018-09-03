@@ -4,36 +4,46 @@ public class ListaFlexivel {
 	
 	private Nodo ultimo;
 	
-	ListaFlexivel () {
-		ultimo = new Nodo(null, null);
+	public ListaFlexivel () {
+		this.ultimo = new Nodo(null);
 	}
 	
-	ListaFlexivel(Serie novaSerie) {
-		ultimo = new Nodo(null, null);
-		ultimo.setProx(new Nodo(novaSerie, null));
+	public ListaFlexivel(Serie novaSerie) {
+		this.ultimo = new Nodo(null);
+		this.ultimo.setAnterior(new Nodo(novaSerie));
 	}
 	
 	public void add(Serie novaSerie) {
-		
+		Nodo aux = new Nodo(novaSerie, this.ultimo);
+		this.ultimo = aux;
 	}
 	
-	
-	public Serie remover() throws Exception {
+	public Serie rm() throws Exception {
 		if(listaEstaVazia())
 			throw new Exception("A lista está vazia !");
 		
-		Nodo aux = ultimo; 
+		Nodo aux = this.ultimo; 
 		
-		while(aux.getProx() != null) {
-			aux = aux.getProx();
+		while(aux.getAnterior() != null) {
+			aux = aux.getAnterior();
 		}
 		
 		return aux.getSerie();
 	}
 
 	private boolean listaEstaVazia() {
-		return this.ultimo.getProx() == null;
+		return this.ultimo.getAnterior() == null;
 	}
 	
+	/*
+	public Nodo printLista() {
+		Nodo aux = ultimo;
+		
+		while(aux.getAnterior() != null) {
+			
+			aux = aux.getAnterior();
+		}
+	}
+	*/
 	
 }

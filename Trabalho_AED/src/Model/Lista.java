@@ -17,15 +17,6 @@ public class Lista {
 		this.series[++this.tamanho] = novaSerie;
 	}	
 	
-	private boolean listaEstaCheia() {
-		return this.series.length == (this.tamanho + 1);
-	}
-	
-	private boolean posicaoNaoExiste(int pos) {
-		return (pos < 0 || 
-			    pos > this.series.length);
-	}
-	
 	public void adicionar(Serie novaSerie, int pos) throws Exception {
 		if(listaEstaCheia() || posicaoNaoExiste(pos)) 
 			throw new Exception("Não é possível adicionar, pois a lista está cheia !");
@@ -61,6 +52,15 @@ public class Lista {
 		return this.tamanho;
 	}
 	
+	private boolean listaEstaCheia() {
+		return this.series.length == (this.tamanho + 1);
+	}
+	
+	private boolean posicaoNaoExiste(int pos) {
+		return (pos < 0 || 
+			    pos > this.series.length);
+	}
+
 	private boolean listaEstaVazia() {
 		return series.length == 0;
 	}

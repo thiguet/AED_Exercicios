@@ -1,18 +1,20 @@
-import java.awt.Panel;
-
+package GUI;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class Painel {
 
 	public static void main (String args[]) {
-		JPanel japel = new JPanel();
+		/*JPanel japel = new JPanel();
 		
 		JButton j = new JButton ("Jorginho");
 		
 		japel.setSize(1000,1000);
 		
 		japel.add(j);
+		*/
+		
+		MainPageGUI GUI = new MainPageGUI();
 		
 	}
 }

@@ -1,3 +1,4 @@
+package Model;
 
 public class Serie {
     private String  nome,

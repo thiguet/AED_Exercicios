@@ -35,15 +35,13 @@ public class ListaFlexivel {
 		return this.ultimo.getAnterior() == null;
 	}
 	
-	/*
-	public Nodo printLista() {
-		Nodo aux = ultimo;
-		
-		while(aux.getAnterior() != null) {
-			
-			aux = aux.getAnterior();
+	@Override
+	public String toString() {
+		String str = "";
+		Nodo aux = this.ultimo;
+		while(aux != null) {
+			str += aux.toString();
 		}
+		return str;
 	}
-	*/
-	
 }

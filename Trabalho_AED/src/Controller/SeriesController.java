@@ -8,18 +8,16 @@ public class SeriesController {
 
 	private ListaFlexivel series;
 	
-	public SeriesController() {}
-	
-	public void getArquivos () {
-	
+	public SeriesController() {
 		try {
-			series = LeitorDeArquivo.lerLinha("C:\\Desktop");
-			
-			
-			
+			this.series = LeitorDeArquivo.lerLinha("C:\\Users\\1117019\\Documents\\AED_Exercicios\\Trabalho_AED\\bin\\Model\\Series.txt");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
+	public String getSeries() {
+		System.out.print(this.series.toString());
+		return null;
+	}
 }

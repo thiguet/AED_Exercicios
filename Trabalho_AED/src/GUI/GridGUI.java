@@ -20,6 +20,10 @@ public abstract class GridGUI extends GUI {
 	private void initializeGUI() {
 		SeriesController controller = new SeriesController();
 		
+		controller.getSeries();
+		
+//		JTable(Object[][] rowData,Object[] columnNames);
+		
 		this.painel = new JPanel();
 		this.voltar = new JButton("Voltar");
 		
@@ -32,11 +36,9 @@ public abstract class GridGUI extends GUI {
 	private void initializeComponents() {
 		this.voltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				new MainPageGUI();
+				dispose();
 			}
 		});
 	}
-	
-	
-	
 }

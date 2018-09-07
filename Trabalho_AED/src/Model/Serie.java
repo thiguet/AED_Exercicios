@@ -82,5 +82,18 @@ public class Serie {
 	public void setNroEpisodios(int nroEpisodios) {
 		this.nroEpisodios = nroEpisodios;
 	}
+	
+	@Override
+	public String toString() {
+		return  this.nome + "\n" +
+				this.tipo + "\n" +
+				this.pais + "\n" +
+        		this.idioma + "\n" +
+        		this.emissora + "\n" +
+        		this.transmissao + "\n" +
+        		this.duracao + "\n" +
+				this.nroTemporadas + "\n" +
+				this.nroEpisodios + "\n" + "\n";
+	}
    
 }

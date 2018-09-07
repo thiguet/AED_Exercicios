@@ -3,8 +3,6 @@ package Model;
 public class Lista {
 	private Serie series [];
 	private int tamanho;
-	
-	private Lista() {}
 
 	public Lista(int tamanho) {
 		this.series = new Serie[tamanho];

@@ -15,7 +15,6 @@ public class MainPageGUI extends GUI {
 		
 	public MainPageGUI () {
 		super();
-		super.setDefaultLookAndFeelDecorated(true);
 		this.initializeGUI();
 	}
 	
@@ -51,7 +50,7 @@ public class MainPageGUI extends GUI {
 	private void exibirTelaFavoritos () {
     	new FavoritosGUI();
     	super.dispose();
-	}
+    }
 
 	private void exibirTelaSeries () {
     	new SeriesGUI();

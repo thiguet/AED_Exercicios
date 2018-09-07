@@ -44,8 +44,8 @@ public class LeitorDeArquivo {
 		novaSerie.setIdioma(linha[4]);
 		novaSerie.setEmissora(linha[5]);
 		novaSerie.setTransmissao(linha[6]);
-		novaSerie.setNroTemporadas(Integer.parseInt(linha[7]));
-		novaSerie.setNroEpisodios(Integer.parseInt(linha[8]));
+		novaSerie.setNroTemporadas(Integer.parseInt(linha[7].trim()));
+		novaSerie.setNroEpisodios(Integer.parseInt(linha[8].trim()));
 		
 		return novaSerie;
 	}

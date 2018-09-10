@@ -1,21 +1,28 @@
 package Model;
 
 public class ListaFlexivel {
-	
+	private Nodo primeiro;
 	private Nodo ultimo;
+	private int tamanho;
 	
 	public ListaFlexivel () {
-		this.ultimo = new Nodo(null);
+		this.primeiro = new Nodo();
+		this.ultimo = this.primeiro;
+		this.primeiro.setProx(ultimo);
 	}
 	
 	public ListaFlexivel(Serie novaSerie) {
-		this.ultimo = new Nodo(null);
-		this.ultimo.setAnterior(new Nodo(novaSerie));
+		this.primeiro = new Nodo();
+		this.ultimo = new Nodo(novaSerie);
+		this.primeiro.setProx(this.ultimo);
+		this.tamanho++;
 	}
 	
 	public void add(Serie novaSerie) {
-		Nodo aux = new Nodo(novaSerie, this.ultimo);
+		Nodo aux = new Nodo(novaSerie);
+		this.ultimo.setProx(aux);
 		this.ultimo = aux;
+		this.tamanho++;
 	}
 	
 	public Serie rm() throws Exception {
@@ -24,15 +31,15 @@ public class ListaFlexivel {
 		
 		Nodo aux = this.ultimo; 
 		
-		while(aux.getAnterior() != null) {
-			aux = aux.getAnterior();
+		while(aux.getProx() != null) {
+			aux = aux.getProx();
 		}
 		
 		return aux.getSerie();
 	}
 
 	private boolean listaEstaVazia() {
-		return this.ultimo.getAnterior() == null;
+		return this.ultimo.getProx() == null;
 	}
 	
 	@Override
@@ -43,5 +50,46 @@ public class ListaFlexivel {
 			str += aux.toString();
 		}
 		return str;
+	}
+	
+	public Object[][] getDataInRowFormat() {
+		Object[][] data = new Object[this.tamanho][6];
+		
+		Nodo aux = primeiro.getProx();
+		Object[] helper;
+		int i = 0;
+		while(aux != null) {
+			helper = aux.getSerie().toObject();
+			data[i]= helper;
+			aux = aux.getProx();
+			i++;
+		}
+		
+		return data;
+	}
+
+	public int getTamanho() {
+		return tamanho;
+	}
+
+	public Serie getSerie(int posicao) throws Exception {
+		Serie serie;
+		Nodo aux;
+		
+		if(posicaoExiste(posicao)) {
+			aux = primeiro;
+			for(int i = posicao; i > 0; i--) {
+				aux = aux.getProx();
+			}
+			serie = aux.getSerie();
+		} else {
+			throw new Exception("A posição informada não existe !");
+		}
+		
+		return serie;
+	}
+
+	private boolean posicaoExiste(int posicao) {
+		return posicao >= 0 && posicao < tamanho;
 	}
 }

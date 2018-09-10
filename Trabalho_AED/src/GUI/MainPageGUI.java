@@ -1,15 +1,14 @@
 package GUI;
 
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class MainPageGUI extends GUI {
-
+	
+	private static final long serialVersionUID = 1L;
 	JButton listarSeries,
 			listarFavoritas;
 		
@@ -48,12 +47,12 @@ public class MainPageGUI extends GUI {
 	}
 
 	private void exibirTelaFavoritos () {
-    	new FavoritosGUI();
-    	super.dispose();
+		super.dispose();
+	    new FavoritosGUI();
     }
 
 	private void exibirTelaSeries () {
-    	new SeriesGUI();
-    	super.dispose();
-	}
+		super.dispose();
+		new SeriesGUI();
+    }
 }

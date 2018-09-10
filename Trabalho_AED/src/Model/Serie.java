@@ -95,5 +95,21 @@ public class Serie {
 				this.nroTemporadas + "\n" +
 				this.nroEpisodios + "\n" + "\n";
 	}
+
+	public Object[] toObject() {
+		Object[] obj = new Object[9];
+		
+		obj[0] = this.nome;
+		obj[1] = this.tipo;
+		//obj[2] = this.pais;
+		obj[2] = this.idioma;
+		//obj[4] = this.emissora;
+		//obj[5] = this.transmissao;
+		obj[3] = this.duracao;
+		obj[4] = this.nroTemporadas;
+		obj[5] = this.nroEpisodios;
+		
+		return obj;
+	}
    
 }

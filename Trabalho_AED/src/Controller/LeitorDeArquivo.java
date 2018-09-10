@@ -16,16 +16,19 @@ public class LeitorDeArquivo {
 		File arq = new File(diretorioArq);
 		ListaFlexivel listaSeries = new ListaFlexivel();
 		
-		BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(arq), "ISO-8859-1"));
+		BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(arq) 
+				,"UTF-8"
+				));
 	
 		String linha = null;
 		
 		linha = buff.readLine();
+		linha = buff.readLine();
 		
 		while (linha != null) {
-			linha = buff.readLine();
 			String campos [] = linha.split(";");
 			listaSeries.add( LeitorDeArquivo.getSerie(campos) );
+			linha = buff.readLine();
 		}
 		
 		buff.close();
@@ -36,16 +39,24 @@ public class LeitorDeArquivo {
 
 	public static Serie getSerie(String[] linha) {
 		Serie novaSerie = new Serie();
-
-		novaSerie.setNome(linha[0]);
-		novaSerie.setTipo(linha[1]);
-		novaSerie.setDuracao(linha[2]);
-		novaSerie.setPais(linha[3]);
-		novaSerie.setIdioma(linha[4]);
-		novaSerie.setEmissora(linha[5]);
-		novaSerie.setTransmissao(linha[6]);
-		novaSerie.setNroTemporadas(Integer.parseInt(linha[7].trim()));
-		novaSerie.setNroEpisodios(Integer.parseInt(linha[8].trim()));
+		if (linha.length > 0)
+			novaSerie.setNome(linha[0] );
+		if (linha.length > 1)
+			novaSerie.setTipo(linha[1]);
+		if (linha.length > 2)
+			novaSerie.setDuracao(linha[2]);
+		if (linha.length > 3)
+			novaSerie.setPais(linha[3]);
+		if (linha.length > 4)
+			novaSerie.setIdioma(linha[4]);
+		if (linha.length > 5)
+			novaSerie.setEmissora(linha[5]);
+		if (linha.length > 6)
+			novaSerie.setTransmissao(linha[6]);
+		if (linha.length > 7)
+			novaSerie.setNroTemporadas(Integer.parseInt(linha[7].trim()));
+		if (linha.length > 8)
+			novaSerie.setNroEpisodios(Integer.parseInt(linha[8].trim()));
 		
 		return novaSerie;
 	}

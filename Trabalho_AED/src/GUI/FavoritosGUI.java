@@ -1,5 +1,5 @@
 package GUI;
 
-public class FavoritosGUI extends GridGUI {
+public class FavoritosGUI extends BackGUI {
 
 }

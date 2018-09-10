@@ -1,28 +1,22 @@
 package Controller;
 
-import java.io.IOException;
-
 import Model.ListaFlexivel;
 
 public class FavoritosController {
 	private ListaFlexivel favoritos;
 	
-	FavoritosController() {
-		try {
-			this.favoritos = LeitorDeArquivo.lerLinha("..\\Model\\Series.txt");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	private ListaFlexivel getStoredFavoritos() {
-		
-		
-		return null;
-	}
+	FavoritosController() {}
 
 	public void adicionar() {
 		
+	}
+
+	public ListaFlexivel getFavoritos() {
+		return favoritos;
+	}
+
+	public void setFavoritos(ListaFlexivel favoritos) {
+		this.favoritos = favoritos;
 	}
 	
 }

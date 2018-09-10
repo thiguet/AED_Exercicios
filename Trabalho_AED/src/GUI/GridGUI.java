@@ -1,16 +1,17 @@
 package GUI;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Dimension;
 
 import javax.swing.*;
 
 import Controller.SeriesController;
 
-public abstract class GridGUI extends GUI {
-	GridLineGUI lines[];
-	JPanel painel;
-	JButton voltar;
+public abstract class GridGUI extends BackGUI {
+	
+	private static final long serialVersionUID = 1L;
+	
+	private JTable tabela;
+	private JScrollPane scroll;
 	
 	public GridGUI () {
 		super();
@@ -18,27 +19,43 @@ public abstract class GridGUI extends GUI {
 	}
 
 	private void initializeGUI() {
-		SeriesController controller = new SeriesController();
+		SeriesController controller = new SeriesController();	
 		
-		controller.getSeries();
+		MyDefaultTableModel model = new MyDefaultTableModel(controller.getSeriesInObjectType(), 
+				new Object [] {"Nome","Tipo","Idioma","Duração","Temporadas","Episódios", "Favoritos"});
 		
-//		JTable(Object[][] rowData,Object[] columnNames);
+		this.tabela = new JTable( model );
 		
-		this.painel = new JPanel();
-		this.voltar = new JButton("Voltar");
+		this.setLocation(200, 120);
+		this.setSize(800, 550);
 		
-		painel.add(voltar);
-		super.add(painel);
+		this.tabela.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		
-		initializeComponents();
-	}
+		Dimension d = new Dimension(750, 400);
 
-	private void initializeComponents() {
-		this.voltar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new MainPageGUI();
-				dispose();
-			}
-		});
+		this.tabela.setMaximumSize(d);
+		this.tabela.setMinimumSize(d);
+		
+		this.scroll = new JScrollPane(this.tabela, 
+				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+			    JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		
+		this.scroll.setMaximumSize(d);
+		this.scroll.setMinimumSize(d);
+
+		this.tabela.setSize(d);
+		this.scroll.setPreferredSize(d);
+		
+		this.painel.add(this.scroll);
+		
+		this.tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
+		this.tabela.getColumnModel().getColumn(1).setPreferredWidth(80);
+		this.tabela.getColumnModel().getColumn(2).setPreferredWidth(80);
+		this.tabela.getColumnModel().getColumn(3).setPreferredWidth(100);
+		this.tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
+		this.tabela.getColumnModel().getColumn(5).setPreferredWidth(100);
+		
+		this.scroll.setBackground(java.awt.Color.cyan);
+		this.tabela.setBackground(java.awt.Color.cyan);
 	}
 }

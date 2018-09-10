@@ -24,7 +24,7 @@ public class ListaFlexivel {
 		this.ultimo = aux;
 		this.tamanho++;
 	}
-	
+
 	public Serie rm() throws Exception {
 		if(listaEstaVazia())
 			throw new Exception("A lista está vazia !");
@@ -32,6 +32,36 @@ public class ListaFlexivel {
 		Nodo aux = this.ultimo; 
 		
 		while(aux.getProx() != null) {
+			aux = aux.getProx();
+		}
+		
+		return aux.getSerie();
+	}
+	
+	public Serie rm(int pos) throws Exception {
+		if(listaEstaVazia())
+			throw new Exception("A lista está vazia !");
+		
+		if(!posicaoExiste(pos))
+			throw new Exception("Esta posição não existe !");
+		
+		Nodo aux = this.ultimo; 
+		
+		while(pos > 0) {
+			aux = aux.getProx();
+			pos--;
+		}
+		
+		return aux.getSerie();
+	}
+
+	public Serie rm(Serie toRemove) throws Exception {
+		if(listaEstaVazia())
+			throw new Exception("A lista está vazia !");
+		
+		Nodo aux = this.primeiro; 
+		
+		while(aux.getProx() != null && !aux.equals(toRemove)) {
 			aux = aux.getProx();
 		}
 		

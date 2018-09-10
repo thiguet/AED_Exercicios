@@ -6,7 +6,7 @@ import Model.ListaFlexivel;
 
 public class SeriesController {
 
-	private ListaFlexivel series;
+	private static ListaFlexivel series;
 	
 	public SeriesController() {
 		try {
@@ -18,15 +18,16 @@ public class SeriesController {
 					"Model" +
 					"\\" + 
 					"Series.txt";
-			
-			this.series = LeitorDeArquivo.lerLinha(filePath);
+			if(SeriesController.series == null)
+				SeriesController.series = LeitorDeArquivo.lerLinha(filePath);
+		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public Object[][] getSeriesInObjectType() {
-		Object [][] series = this.series.getDataInRowFormat();
+		Object [][] series = SeriesController.series.getDataInRowFormat();
 		Object [][] result = new Object [series.length][series[0].length + 1];
 		
 		for(int i = 0 ; i < series.length ; i++) {
@@ -43,11 +44,11 @@ public class SeriesController {
 	}
 	
 	public String getSeriesToString() {
-		return this.series.toString();
+		return SeriesController.series.toString();
 	}
 	
 	public ListaFlexivel getSeries() {
-		return this.series;
+		return SeriesController.series;
 	}
 	
 }

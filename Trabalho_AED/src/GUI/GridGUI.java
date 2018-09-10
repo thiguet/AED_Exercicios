@@ -48,6 +48,8 @@ public abstract class GridGUI extends BackGUI {
 		
 		this.painel.add(this.scroll);
 		
+		this.tabela.getModel().addTableModelListener(new MyTableModelListener());
+
 		this.tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
 		this.tabela.getColumnModel().getColumn(1).setPreferredWidth(80);
 		this.tabela.getColumnModel().getColumn(2).setPreferredWidth(80);

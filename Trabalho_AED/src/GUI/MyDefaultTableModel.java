@@ -1,18 +1,20 @@
 package GUI;
 
+import javax.swing.event.TableModelEvent;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 public class MyDefaultTableModel extends DefaultTableModel {
 
 	private static final long serialVersionUID = 1L;
 	
-	private final static int NOME = 0;
-	private final static int TIPO = 1;
-	private final static int IDIOMA = 2;
-	private final static int DURACAO = 3;
-	private final static int TEMPORADAS = 4;
-	private final static int EPISODIOS = 5;
-	private final static int FAVORITOS = 6;
+	public final static int NOME = 0;
+	public final static int TIPO = 1;
+	public final static int IDIOMA = 2;
+	public final static int DURACAO = 3;
+	public final static int TEMPORADAS = 4;
+	public final static int EPISODIOS = 5;
+	public final static int FAVORITOS = 6;
 	
 	public MyDefaultTableModel(Object[][] seriesInObjectType, Object[] objects) {
 		super(seriesInObjectType, objects);
@@ -39,4 +41,5 @@ public class MyDefaultTableModel extends DefaultTableModel {
 		        throw new IndexOutOfBoundsException("columnIndex out of bounds");
 	    }
 	}	
+	
 }

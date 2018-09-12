@@ -38,7 +38,7 @@ public class MyTableModelListener implements TableModelListener {
 	        } else {
 				try {
 					chosenSerie = favController.getFavoritos().rm(row);
-					SeriesController.getSeries().addFim(chosenSerie);
+					SeriesController.getSeries().add(chosenSerie, row);
 		        	JOptionPane.showMessageDialog(null, "A série " + chosenSerie.getNome() + " foi removida dos favoritos.");
 			    } catch (Exception e1) {
 					e1.printStackTrace();

@@ -19,19 +19,19 @@ public abstract class GridGUI extends BackGUI {
 	}
 
 	private void initializeGUI() {
-		SeriesController controller = new SeriesController();	
+		new SeriesController ();	
 		
-		MyDefaultTableModel model = new MyDefaultTableModel(controller.getSeriesInObjectType(), 
-				new Object [] {"Nome","Tipo","Idioma","Duração","Temporadas","Episódios", "Favoritos"});
+		MyDefaultTableModel model = new MyDefaultTableModel(SeriesController.getSeriesInObjectType(), 
+				new Object [] {"Cod.","Nome","Tipo","Idioma","Duração","Temporadas","Episódios", "Favoritos"});
 		
 		this.tabela = new JTable( model );
 		
 		this.setLocation(200, 120);
-		this.setSize(800, 550);
+		this.setSize(950, 550);
 		
 		this.tabela.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		
-		Dimension d = new Dimension(750, 400);
+		Dimension d = new Dimension(900, 400);
 
 		this.tabela.setMaximumSize(d);
 		this.tabela.setMinimumSize(d);
@@ -50,12 +50,13 @@ public abstract class GridGUI extends BackGUI {
 		
 		this.tabela.getModel().addTableModelListener(new MyTableModelListener());
 
-		this.tabela.getColumnModel().getColumn(0).setPreferredWidth(200);
-		this.tabela.getColumnModel().getColumn(1).setPreferredWidth(80);
+		this.tabela.getColumnModel().getColumn(0).setPreferredWidth(40);
+		this.tabela.getColumnModel().getColumn(1).setPreferredWidth(200);
 		this.tabela.getColumnModel().getColumn(2).setPreferredWidth(80);
-		this.tabela.getColumnModel().getColumn(3).setPreferredWidth(100);
+		this.tabela.getColumnModel().getColumn(3).setPreferredWidth(80);
 		this.tabela.getColumnModel().getColumn(4).setPreferredWidth(100);
 		this.tabela.getColumnModel().getColumn(5).setPreferredWidth(100);
+		this.tabela.getColumnModel().getColumn(6).setPreferredWidth(100);
 		
 		this.scroll.setBackground(java.awt.Color.cyan);
 		this.tabela.setBackground(java.awt.Color.cyan);

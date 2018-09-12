@@ -37,7 +37,8 @@ public class SeriesController {
 			result[i][3] = series[i][3];
 			result[i][4] = series[i][4];
 			result[i][5] = series[i][5];
-			result[i][6] = Boolean.FALSE;
+			result[i][6] = series[i][6];
+			result[i][7] = Boolean.FALSE;
 		}
 		
 		return result;

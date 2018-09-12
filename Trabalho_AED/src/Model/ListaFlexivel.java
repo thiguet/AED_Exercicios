@@ -1,7 +1,5 @@
 package Model;
 
-import javax.swing.JOptionPane;
-
 public class ListaFlexivel {
 	private Nodo primeiro;
 	private Nodo ultimo;
@@ -20,20 +18,16 @@ public class ListaFlexivel {
 	public void addFim(Serie novaSerie) {
 		Nodo aux = new Nodo(novaSerie);
 		
-		novaSerie.setId(this.tamanho - 1);
-		
 		if(listaVazia()) {
 			this.primeiro = this.ultimo = aux;
-			
-			this.tamanho++;
 		} else {
 			aux.setAnterior(this.ultimo);
 			this.ultimo.setProximo(aux);
 			
 			this.ultimo = aux;
-			
-			this.tamanho++;
 		}
+
+		this.tamanho++;
 	}
 
 	public void addIni(Serie novaSerie) {
@@ -50,7 +44,6 @@ public class ListaFlexivel {
 			
 			this.tamanho++;
 		}
-		
 	}
 	
 	public void add(Serie novaSerie, int pos) throws Exception {
@@ -117,21 +110,23 @@ public class ListaFlexivel {
 			throw new Exception("A lista está vazia !");
 		
 		Nodo aux = this.primeiro; 
-		
-		int i = 0;
+	
 		while(aux != null && !(aux.getSerie().getId() == id) ) {
 			aux = aux.getProximo();
-			i++;
 		}
 		
-		JOptionPane.showMessageDialog(null, i + " FODEO.");
 		if(aux == null) 
 			throw new Exception("Não existe nenhuma Série com esse código !");
 		
-		if(aux != this.primeiro) {
+		if(aux == this.primeiro) {
+			this.primeiro = aux.getProximo();
+		} else if(aux == this.ultimo) {
+			this.ultimo = aux.getAnterior();
+		} else {
 			aux.getAnterior().setProximo(aux.getProximo());
+			aux.getProximo().setAnterior(aux.getAnterior());
 		}
-	
+		
 		aux.setAnterior(null);
 		aux.setProximo (null);
 		
@@ -175,9 +170,9 @@ public class ListaFlexivel {
 	}
 	
 	public Object[][] getDataInRowFormat() {
-		Object[][] data = new Object[this.tamanho][6];
+		Object[][] data = new Object[this.tamanho][7];
 		
-		Nodo aux = primeiro.getProximo();
+		Nodo aux = this.primeiro;
 		Object[] helper;
 		int i = 0;
 		while(aux != null) {

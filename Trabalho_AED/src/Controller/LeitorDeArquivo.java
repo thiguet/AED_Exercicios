@@ -9,12 +9,13 @@ import Model.ListaFlexivel;
 import Model.Serie;
 
 public class LeitorDeArquivo {
+	private static ListaFlexivel listaSeries;
 	
 	private LeitorDeArquivo() {}
 	
 	public static ListaFlexivel lerLinha(String diretorioArq) throws IOException {
 		File arq = new File(diretorioArq);
-		ListaFlexivel listaSeries = new ListaFlexivel();
+		LeitorDeArquivo.listaSeries = new ListaFlexivel();
 		
 		BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(arq) 
 				,"UTF-8"
@@ -23,11 +24,10 @@ public class LeitorDeArquivo {
 		String linha = null;
 		
 		linha = buff.readLine();
-		linha = buff.readLine();
 		
 		while (linha != null) {
 			String campos [] = linha.split(";");
-			listaSeries.addFim( LeitorDeArquivo.getSerie(campos) );
+			LeitorDeArquivo.listaSeries.addFim( LeitorDeArquivo.getSerie(campos) );
 			linha = buff.readLine();
 		}
 		
@@ -39,6 +39,9 @@ public class LeitorDeArquivo {
 
 	public static Serie getSerie(String[] linha) {
 		Serie novaSerie = new Serie();
+		
+		novaSerie.setId(LeitorDeArquivo.listaSeries.getTamanho());
+		
 		if (linha.length > 0)
 			novaSerie.setNome(linha[0] );
 		if (linha.length > 1)

@@ -1,16 +1,27 @@
 package Model;
 
 public class Serie {
-    private String  nome,
+	private int id;
+
+	private String  nome,
     				tipo,
     				pais,
             		idioma,
             		emissora,
             		transmissao,
             		duracao;
+	
     private int    	nroTemporadas,
     				nroEpisodios;
-    	            
+
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}	        
+    
     public String getNome() {
 		return nome;
 	}

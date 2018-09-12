@@ -15,7 +15,8 @@ public class MyTableModelListener implements TableModelListener {
 	
 	MyTableModelListener () {
 		super();
-		seriesController = new SeriesController ();
+		this.seriesController = new SeriesController ();
+		this.favController    = new FavoritosController ();
 	}
 	
 	@Override
@@ -25,12 +26,11 @@ public class MyTableModelListener implements TableModelListener {
 	    int column = e.getColumn();
 	    if (column == MyDefaultTableModel.FAVORITOS) {
 	        TableModel model = (TableModel) e.getSource();
-	        String columnName = model.getColumnName(column);
 	        Boolean checked = (Boolean) model.getValueAt(row, column);
 	        if (checked) {
 				try {
-					chosenSerie = seriesController.getSeries().rm(row);
-					favController.getFavoritos().add(chosenSerie);
+					chosenSerie = SeriesController.getSeries().rm(row);
+					favController.getFavoritos().addFim(chosenSerie);
 		        	JOptionPane.showMessageDialog(null, "A série " + chosenSerie.getNome() + " foi adicionada aos favoritos.");
 			    } catch (Exception e1) {
 					e1.printStackTrace();
@@ -38,7 +38,7 @@ public class MyTableModelListener implements TableModelListener {
 	        } else {
 				try {
 					chosenSerie = favController.getFavoritos().rm(row);
-					seriesController.getSeries().add(chosenSerie);
+					SeriesController.getSeries().addFim(chosenSerie);
 		        	JOptionPane.showMessageDialog(null, "A série " + chosenSerie.getNome() + " foi removida dos favoritos.");
 			    } catch (Exception e1) {
 					e1.printStackTrace();

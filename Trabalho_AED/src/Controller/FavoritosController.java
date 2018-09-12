@@ -5,14 +5,12 @@ import Model.ListaFlexivel;
 public class FavoritosController {
 	private static ListaFlexivel favoritos;
 	
-	FavoritosController() {}
+	public FavoritosController() {
+		this.favoritos = new ListaFlexivel();
+	}
 
 	public ListaFlexivel getFavoritos() {
 		return favoritos;
 	}
 
-	public void setFavoritos(ListaFlexivel favoritos) {
-		this.favoritos = favoritos;
-	}
-	
 }

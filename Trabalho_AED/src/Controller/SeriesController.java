@@ -26,7 +26,7 @@ public class SeriesController {
 		}
 	}
 	
-	public Object[][] getSeriesInObjectType() {
+	public static Object[][] getSeriesInObjectType() {
 		Object [][] series = SeriesController.series.getDataInRowFormat();
 		Object [][] result = new Object [series.length][series[0].length + 1];
 		
@@ -43,11 +43,11 @@ public class SeriesController {
 		return result;
 	}
 	
-	public String getSeriesToString() {
+	public static String getSeriesToString() {
 		return SeriesController.series.toString();
 	}
 	
-	public ListaFlexivel getSeries() {
+	public static ListaFlexivel getSeries() {
 		return SeriesController.series;
 	}
 	

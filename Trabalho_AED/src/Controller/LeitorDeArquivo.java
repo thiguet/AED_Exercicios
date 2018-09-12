@@ -27,7 +27,7 @@ public class LeitorDeArquivo {
 		
 		while (linha != null) {
 			String campos [] = linha.split(";");
-			listaSeries.add( LeitorDeArquivo.getSerie(campos) );
+			listaSeries.addFim( LeitorDeArquivo.getSerie(campos) );
 			linha = buff.readLine();
 		}
 		

@@ -40,7 +40,7 @@ public class LeitorDeArquivo {
 	public static Serie getSerie(String[] linha) {
 		Serie novaSerie = new Serie();
 		
-		novaSerie.setId(LeitorDeArquivo.listaSeries.getTamanho());
+		novaSerie.setId(LeitorDeArquivo.listaSeries.getTamanho() + 1);
 		
 		if (linha.length > 0)
 			novaSerie.setNome(linha[0] );

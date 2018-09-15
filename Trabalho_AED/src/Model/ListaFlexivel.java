@@ -4,7 +4,7 @@ public class ListaFlexivel {
 	private Nodo primeiro;
 	private Nodo ultimo;
 	private int tamanho;
-	
+
 	public ListaFlexivel () {
 		this.ultimo = this.primeiro = null;
 		this.tamanho = 0;
@@ -80,10 +80,15 @@ public class ListaFlexivel {
 			throw new Exception("A lista está vazia !");
 		
 		Nodo aux = this.primeiro;
-		this.primeiro = aux.getProximo();
+		this.primeiro = this.primeiro.getProximo();
 	
 		aux.setAnterior(null);
 		aux.setProximo (null);
+		
+		if(this.primeiro == null) {
+			this.primeiro = this.ultimo = null;
+		} else
+			this.primeiro.setAnterior(null);
 		
 		this.tamanho--;
 		
@@ -95,23 +100,59 @@ public class ListaFlexivel {
 			throw new Exception("A lista está vazia !");
 		
 		Nodo aux = this.ultimo; 
-		this.ultimo = aux.getAnterior();
+		this.ultimo = this.ultimo.getAnterior();
 
 		aux.setAnterior(null);
 		aux.setProximo (null);
+		
+		this.ultimo.setProximo(null);
 		
 		this.tamanho--;
 		
 		return aux.getSerie();
 	}
-	
-	public Serie rm(int id) throws Exception {
+
+	public Serie rm(int pos) throws Exception {
 		if(listaVazia())
 			throw new Exception("A lista está vazia !");
 		
+		if(!posicaoExiste(pos))
+			throw new Exception("A posição é inválida !");
+			
 		Nodo aux = this.primeiro; 
 	
-		while(aux != null && !(aux.getSerie().getId() == id) ) {
+		while(aux != null && pos > 0 ) {
+			aux = aux.getProximo();
+			pos--;
+		}
+		
+		if(aux == null) 
+			throw new Exception("Não foi possível remover essa Série !");
+		
+		if(aux == this.primeiro) {
+			aux = new Nodo(this.rmIni());
+		} else if(aux == this.ultimo) {
+			aux = new Nodo(this.rmFim());
+		} else {
+			aux.getAnterior().setProximo(aux.getProximo());
+			aux.getProximo().setAnterior(aux.getAnterior());
+
+			aux.setAnterior(null);
+			aux.setProximo (null);
+			
+			this.tamanho--;
+		}
+		
+		return aux.getSerie();
+	}
+
+	public Serie rm(double pos) throws Exception {
+		if(listaVazia())
+			throw new Exception("A lista está vazia !");
+			
+		Nodo aux = this.primeiro; 
+	
+		while(aux != null && !(aux.getSerie().getId() == pos) ) {
 			aux = aux.getProximo();
 		}
 		
@@ -119,9 +160,9 @@ public class ListaFlexivel {
 			throw new Exception("Não existe nenhuma Série com esse código !");
 		
 		if(aux == this.primeiro) {
-			this.primeiro = aux.getProximo();
+			this.rmIni();
 		} else if(aux == this.ultimo) {
-			this.ultimo = aux.getAnterior();
+			this.rmFim();
 		} else {
 			aux.getAnterior().setProximo(aux.getProximo());
 			aux.getProximo().setAnterior(aux.getAnterior());
@@ -134,7 +175,7 @@ public class ListaFlexivel {
 		
 		return aux.getSerie();
 	}
-
+	
 	public Serie rm(Serie toRemove) throws Exception {
 		if(listaVazia())
 			throw new Exception("A lista está vazia !");
@@ -169,21 +210,36 @@ public class ListaFlexivel {
 		return str;
 	}
 	
-	public Object[][] getDataInRowFormat() {
-		Object[][] data = new Object[this.tamanho][7];
+	public Object[][] getSeriesInObjectType() {	
+		
+		Object[][] data = new Object[this.tamanho][11];
 		
 		Nodo aux = this.primeiro;
 		Object[] helper;
+		
 		int i = 0;
 		while(aux != null) {
 			helper = aux.getSerie().toObject();
-			data[i]= helper;
+			
+			data[i][0] = helper[0];
+			data[i][1] = helper[1];
+			data[i][2] = helper[2];
+			data[i][3] = helper[3];
+			data[i][4] = helper[4];
+			data[i][5] = helper[5];
+			data[i][6] = helper[6];
+			data[i][7] = helper[7];
+			data[i][8] = helper[8];
+			data[i][9] = helper[9];
+			data[i][10] = Boolean.FALSE;
+			
 			aux = aux.getProximo();
 			i++;
 		}
 		
 		return data;
 	}
+	
 
 	public int getTamanho() {
 		return tamanho;

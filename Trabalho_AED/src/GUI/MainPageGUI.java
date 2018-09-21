@@ -6,11 +6,15 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import Controller.SeriesController;
+
 public class MainPageGUI extends GUI {
 	
 	private static final long serialVersionUID = 1L;
 	JButton listarSeries,
-			listarFavoritas;
+			listarFavoritas,
+			buscarSerie,
+			opcao;
 		
 	public MainPageGUI () {
 		super();
@@ -20,11 +24,15 @@ public class MainPageGUI extends GUI {
 	private void initializeGUI () {
 		JPanel panel = new JPanel();
 		
-		this.listarSeries 	 = new JButton ("Buscar Séries");
+		this.listarSeries 	 = new JButton ("Visualizar Séries");
 		this.listarFavoritas = new JButton ("Favoritos");
+		this.buscarSerie 	 = new JButton ("Buscar uma Série");
+		this.opcao			 = new JButton ("Opção");
 		
 		panel.add(listarSeries);
 		panel.add(listarFavoritas);
+		panel.add(buscarSerie);
+		panel.add(opcao);
 		
 		super.add(panel);
 		
@@ -44,6 +52,18 @@ public class MainPageGUI extends GUI {
 		    	exibirTelaFavoritos();
 		    }
 		});		
+
+		this.buscarSerie.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		    	SeriesController.getSerie();
+		    }
+		});	
+
+		this.opcao.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		    	exibirOpcao();
+		    }
+		});	
 	}
 
 	private void exibirTelaFavoritos () {
@@ -54,5 +74,10 @@ public class MainPageGUI extends GUI {
 	private void exibirTelaSeries () {
 		super.dispose();
 		new SeriesGUI();
+    }
+	
+	private void exibirOpcao() {
+		super.dispose();
+    	new OptionsGUI ();
     }
 }

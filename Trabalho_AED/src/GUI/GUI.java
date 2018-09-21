@@ -14,6 +14,5 @@ public abstract class GUI extends JFrame {
 		super.setLocation(800, 100);
 		super.setLayout(new GridLayout (1, 1));
 		super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 	}
 }

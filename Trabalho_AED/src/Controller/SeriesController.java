@@ -2,6 +2,8 @@ package Controller;
 
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 import Model.ListaFlexivel;
 import Model.Serie;
 
@@ -51,4 +53,13 @@ public class SeriesController {
 		if(SeriesController.lista == null)
 			SeriesController.lista = SeriesController.getSeriesFromFile();	
 	}
+
+	public static void getSerie() {
+		initializeLista();
+		int codigo = Integer.parseInt(
+				JOptionPane.showInputDialog("Digite o código da série:"));
+		JOptionPane.showMessageDialog(
+				null, 
+				(lista.getSerieById(codigo)).toString());
+	}		
 }

@@ -258,6 +258,18 @@ public class ListaFlexivel {
 		}
 		return aux.getSerie();
 	}
+	
+	public Serie getSerieById(int id) {
+		Nodo aux = primeiro;
+		
+		while(aux != null && (id != aux.getSerie().getId())) {
+			aux = aux.getProximo();
+		}
+		
+		return aux == null  
+				     ? null
+				     : aux.getSerie();
+	}
 
 	private boolean posicaoExiste(int posicao) {
 		return posicao >= 0 && posicao < tamanho;

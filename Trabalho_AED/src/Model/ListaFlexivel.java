@@ -80,19 +80,19 @@ public class ListaFlexivel {
 			throw new Exception("A lista está vazia !");
 		
 		Nodo aux = this.primeiro;
-		this.primeiro = this.primeiro.getProximo();
-	
-		aux.setAnterior(null);
-		aux.setProximo (null);
+		Serie serie = aux.getSerie();
 		
-		if(this.primeiro == null) {
+		this.primeiro = this.primeiro.getProximo();
+		
+		if(this.primeiro == null) 
 			this.primeiro = this.ultimo = null;
-		} else
+		else
 			this.primeiro.setAnterior(null);
 		
+		aux = null;
 		this.tamanho--;
 		
-		return aux.getSerie();
+		return serie;
 	}
 
 	public Serie rmFim() throws Exception {
@@ -100,16 +100,16 @@ public class ListaFlexivel {
 			throw new Exception("A lista está vazia !");
 		
 		Nodo aux = this.ultimo; 
+		Serie serie = aux.serie;
+		
 		this.ultimo = this.ultimo.getAnterior();
-
-		aux.setAnterior(null);
-		aux.setProximo (null);
 		
 		this.ultimo.setProximo(null);
 		
+		aux = null;
 		this.tamanho--;
 		
-		return aux.getSerie();
+		return serie;
 	}
 
 	public Serie rm(int pos) throws Exception {
@@ -120,6 +120,7 @@ public class ListaFlexivel {
 			throw new Exception("A posição é inválida !");
 			
 		Nodo aux = this.primeiro; 
+		Serie serie;
 	
 		while(aux != null && pos > 0 ) {
 			aux = aux.getProximo();
@@ -136,14 +137,14 @@ public class ListaFlexivel {
 		} else {
 			aux.getAnterior().setProximo(aux.getProximo());
 			aux.getProximo().setAnterior(aux.getAnterior());
-
-			aux.setAnterior(null);
-			aux.setProximo (null);
 			
 			this.tamanho--;
 		}
 		
-		return aux.getSerie();
+		serie = aux.getSerie();
+		aux = null;
+		
+		return serie;
 	}
 
 	public Serie rm(double pos) throws Exception {
@@ -151,6 +152,7 @@ public class ListaFlexivel {
 			throw new Exception("A lista está vazia !");
 			
 		Nodo aux = this.primeiro; 
+		Serie serie;
 	
 		while(aux != null && !(aux.getSerie().getId() == pos) ) {
 			aux = aux.getProximo();
@@ -168,12 +170,11 @@ public class ListaFlexivel {
 			aux.getProximo().setAnterior(aux.getAnterior());
 		}
 		
-		aux.setAnterior(null);
-		aux.setProximo (null);
-		
+		serie = aux.getSerie();
+		aux = null;
 		this.tamanho--;
 		
-		return aux.getSerie();
+		return serie;
 	}
 	
 	public Serie rm(Serie toRemove) throws Exception {
@@ -181,19 +182,19 @@ public class ListaFlexivel {
 			throw new Exception("A lista está vazia !");
 		
 		Nodo aux = this.primeiro; 
+		Serie serie;
 		
 		while(aux.getProximo() != null && !aux.equals(toRemove)) {
 			aux = aux.getProximo();
 		}
-
-		aux.setAnterior(null);
-		aux.setProximo (null);
 		
-		this.tamanho--;
-		
-		return aux != null 
+		serie = aux != null 
 				? aux.getSerie()
 				: null;
+		aux = null;
+		this.tamanho--;
+		
+		return serie;
 	}
 
 	private boolean listaVazia() {
@@ -239,7 +240,6 @@ public class ListaFlexivel {
 		
 		return data;
 	}
-	
 
 	public int getTamanho() {
 		return tamanho;

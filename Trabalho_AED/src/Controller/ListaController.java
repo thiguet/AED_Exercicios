@@ -73,5 +73,10 @@ public abstract class ListaController {
 			e.printStackTrace();
 		}
 	}
-	
+
+	public String getSerieToString(int cod) {
+		Serie escolhida = this.lista.getSerieById(cod);
+		return (escolhida == null) 
+					? null : escolhida.toString();
+	}
 }

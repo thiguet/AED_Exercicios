@@ -5,16 +5,11 @@ import java.awt.Dimension;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-import Controller.FavoritosController;
-import Controller.SeriesController;
 import Model.MyDefaultTableModel;
 
 public abstract class GridGUI extends BackGUI {
 	
 	private static final long serialVersionUID = 4L;
-	
-	public static final FavoritosController favsController = new FavoritosController();
-	public static final SeriesController seriesController = new SeriesController ();
 	
 	private JTable tabela;
 	private JScrollPane scroll;

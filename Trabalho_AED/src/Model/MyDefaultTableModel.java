@@ -3,8 +3,8 @@ package Model;
 import javax.swing.table.DefaultTableModel;
 
 public class MyDefaultTableModel extends DefaultTableModel {
-
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
+	private static Object [] colunas = new Object [] {"Cod.","Nome","Tipo","País","Idioma","Emissora","Transmissão","Duração","Temporadas","Episódios","Favoritos"};
 	
 	public final static int ID = 0;
 	public final static int NOME = 1;
@@ -18,8 +18,8 @@ public class MyDefaultTableModel extends DefaultTableModel {
 	public final static int EPISODIOS = 9;
 	public final static int FAVORITOS = 10;
 	
-	public MyDefaultTableModel(Object[][] seriesInObjectType, Object[] objects) {
-		super(seriesInObjectType, objects);
+	public MyDefaultTableModel(Object[][] seriesInObjectType) {
+		super(seriesInObjectType, colunas);
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class MyDefaultTableModel extends DefaultTableModel {
 		    case FAVORITOS:
 		    	return Boolean.class;
 		    default:
-		        throw new IndexOutOfBoundsException("columnIndex out of bounds");
+		        throw new IndexOutOfBoundsException("Essa coluna não existe !");
 	    }
 	}	
 }

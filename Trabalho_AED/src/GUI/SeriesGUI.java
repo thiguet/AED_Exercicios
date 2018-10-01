@@ -2,28 +2,24 @@ package GUI;
 
 import javax.swing.JOptionPane;
 
-import Controller.FavoritosController;
-import Controller.SeriesController;
 import Model.Serie;
 
 public class SeriesGUI extends GridGUI {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 3L;
 	
 	public SeriesGUI () {
-		super(SeriesController.getLista());
+		super(GridGUI.seriesController.getListInObjectFormat());
 	}
 
 	@Override
 	public void checkedEvent(int row) throws Exception {
-		// TODO Auto-generated method stub
-		Serie favoritada = SeriesController.removeSerie(row);
+		Serie favoritada = GridGUI.seriesController.removeSerie(row);
 		
-		FavoritosController.addNewSerie(favoritada);
+		GridGUI.favsController.addNewSerie(favoritada);
 		
 		this.removeRow(row);
 		
 		JOptionPane.showMessageDialog(null, "A série " + favoritada.getNome() + " foi adicionada aos favoritos.");
 	}
-
 }

@@ -85,9 +85,9 @@ public class ListaFlexivel {
 		aux.setAnterior(null);
 		aux.setProximo (null);
 		
-		if(this.primeiro == null) {
+		if(this.primeiro == null)
 			this.primeiro = this.ultimo = null;
-		} else
+		else
 			this.primeiro.setAnterior(null);
 		
 		this.tamanho--;
@@ -203,41 +203,12 @@ public class ListaFlexivel {
 	@Override
 	public String toString() {
 		String str = "";
-		Nodo aux = this.ultimo;
+		Nodo aux = this.primeiro;
 		while(aux != null) {
 			str += aux.toString();
+			aux = aux.getProximo();
 		}
 		return str;
-	}
-	
-	public Object[][] getSeriesInObjectType() {	
-		
-		Object[][] data = new Object[this.tamanho][11];
-		
-		Nodo aux = this.primeiro;
-		Object[] helper;
-		
-		int i = 0;
-		while(aux != null) {
-			helper = aux.getSerie().toObject();
-			
-			data[i][0] = helper[0];
-			data[i][1] = helper[1];
-			data[i][2] = helper[2];
-			data[i][3] = helper[3];
-			data[i][4] = helper[4];
-			data[i][5] = helper[5];
-			data[i][6] = helper[6];
-			data[i][7] = helper[7];
-			data[i][8] = helper[8];
-			data[i][9] = helper[9];
-			data[i][10] = Boolean.FALSE;
-			
-			aux = aux.getProximo();
-			i++;
-		}
-		
-		return data;
 	}
 	
 

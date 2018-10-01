@@ -1,9 +1,12 @@
 package Controller;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 import Model.ListaFlexivel;
 import Model.Serie;
@@ -13,8 +16,8 @@ public class LeitorDeArquivo {
 	
 	private LeitorDeArquivo() {}
 	
-	public static ListaFlexivel lerLinha(String diretorioArq) throws IOException {
-		File arq = new File(diretorioArq);
+	public static ListaFlexivel lerLinha(String fileName) throws IOException {
+		File arq = new File(fileName);
 		LeitorDeArquivo.listaSeries = new ListaFlexivel();
 		
 		BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(arq) 
@@ -36,7 +39,6 @@ public class LeitorDeArquivo {
 		return listaSeries;
 	}
 	
-
 	public static Serie getSerie(String[] linha) {
 		Serie novaSerie = new Serie();
 		
@@ -64,5 +66,31 @@ public class LeitorDeArquivo {
 		return novaSerie;
 	}
 	
-	
+	public void saveLista(ListaFlexivel lista, String fileName) {
+		String fileContents = "";
+		
+		fileContents += lista.toString();
+
+		try {
+			File arq = new File(fileName);
+			LeitorDeArquivo.listaSeries = new ListaFlexivel();
+					
+			if(!arq.exists()) {
+				arq.createNewFile();
+			}
+			
+			BufferedWriter bw = new BufferedWriter(new PrintWriter(new FileWriter(arq, true)));
+				
+			bw.write(fileContents);
+		
+			bw.close();
+		} catch (IOException e) {
+			
+			
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 }

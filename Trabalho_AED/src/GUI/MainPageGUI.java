@@ -11,7 +11,11 @@ public class MainPageGUI extends GUI {
 	private static final long serialVersionUID = 1L;
 	JButton listarSeries,
 			listarFavoritas;
-		
+	
+	public static void main (String args[]) {
+		new MainPageGUI ();
+	}	
+	
 	public MainPageGUI () {
 		super();
 		this.initializeGUI();

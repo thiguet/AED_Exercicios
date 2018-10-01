@@ -7,22 +7,22 @@ import javax.swing.table.DefaultTableModel;
 
 import Controller.FavoritosController;
 import Controller.SeriesController;
-import Model.ListaFlexivel;
 import Model.MyDefaultTableModel;
-import Model.Serie;
 
 public abstract class GridGUI extends BackGUI {
 	
-	private static final long serialVersionUID = 1L;
-	private static Object [] colunas = new Object [] {"Cod.","Nome","Tipo","País","Idioma","Emissora","Transmissão","Duração","Temporadas","Episódios","Favoritos"};
+	private static final long serialVersionUID = 4L;
+	
+	public static final FavoritosController favsController = new FavoritosController();
+	public static final SeriesController seriesController = new SeriesController ();
 	
 	private JTable tabela;
 	private JScrollPane scroll;
 
-	public GridGUI (ListaFlexivel lista) {
+	public GridGUI (Object[][] jTableData) {
 		super();
 		
-		MyDefaultTableModel model = new MyDefaultTableModel(lista.getSeriesInObjectType(), colunas);
+		MyDefaultTableModel model = new MyDefaultTableModel(jTableData);		
 		
 		initializeGUI(model);
 	}
@@ -33,7 +33,7 @@ public abstract class GridGUI extends BackGUI {
 		this.setLocation(100, 120);
 		this.setSize(1150, 550);	
 		
-		this.initializeGrid(model, d);
+		this.initializeJTable(model, d);
 		
 		this.scroll = new JScrollPane(this.tabela, 
 				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
@@ -49,7 +49,7 @@ public abstract class GridGUI extends BackGUI {
 		this.scroll.setBackground(java.awt.Color.cyan);
 	}
 
-	private void initializeGrid(DefaultTableModel model, Dimension d) {
+	private void initializeJTable(DefaultTableModel model, Dimension d) {
 		this.tabela = new JTable( model );
 				
 		this.tabela.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);

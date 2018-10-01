@@ -12,6 +12,6 @@ public class SeriesController extends ListaController {
 	public SeriesController() {
 		super();
 		this.filePath = SeriesController.seriesFilePath;
+		this.getListFromFile();
 	}
-
 }

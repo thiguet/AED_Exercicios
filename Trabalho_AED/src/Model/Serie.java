@@ -93,19 +93,6 @@ public class Serie {
 	public void setNroEpisodios(int nroEpisodios) {
 		this.nroEpisodios = nroEpisodios;
 	}
-	
-	@Override
-	public String toString() {
-		return  this.nome + "\n" +
-				this.tipo + "\n" +
-				this.pais + "\n" +
-        		this.idioma + "\n" +
-        		this.emissora + "\n" +
-        		this.transmissao + "\n" +
-        		this.duracao + "\n" +
-				this.nroTemporadas + "\n" +
-				this.nroEpisodios + "\n" + "\n";
-	}
 
 	public Object[] toObject() {
 		Object[] obj = new Object[10];
@@ -124,4 +111,29 @@ public class Serie {
 		return obj;
 	}
    
+	public String toFileFormat() {
+		return  this.nome + ";" +
+				this.tipo + ";" +
+				this.pais + ";" +
+        		this.idioma + ";" +
+        		this.emissora + ";" +
+        		this.transmissao + ";" +
+        		this.duracao + ";" +
+				this.nroTemporadas + ";" +
+				this.nroEpisodios + "\n";
+	}
+	
+	@Override
+	public String toString() {
+		return  this.nome + "\n" +
+				this.tipo + "\n" +
+				this.pais + "\n" +
+        		this.idioma + "\n" +
+        		this.emissora + "\n" +
+        		this.transmissao + "\n" +
+        		this.duracao + "\n" +
+				this.nroTemporadas + "\n" +
+				this.nroEpisodios + "\n" + "\n";
+	}
+	
 }

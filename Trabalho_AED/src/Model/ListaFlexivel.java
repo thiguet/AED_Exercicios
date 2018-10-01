@@ -180,35 +180,28 @@ public class ListaFlexivel {
 		
 		return serie;
 	}
-	
-	public Serie rm(Serie toRemove) throws Exception {
-		if(listaVazia())
-			throw new Exception("A lista está vazia !");
-		
-		Nodo aux = this.primeiro; 
-		Serie serie;
-		
-		while(aux.getProximo() != null && !aux.equals(toRemove)) {
-			aux = aux.getProximo();
-		}
-		
-		serie = aux != null 
-				? aux.getSerie()
-				: null;
-		aux = null;
-		this.tamanho--;
-		
-		return serie;
-	}
 
 	private boolean listaVazia() {
 		return this.tamanho == 0;
 	}
 
-	private boolean posicaoExiste(int posicao) {
-		return posicao >= 0 && posicao < tamanho;
+	private boolean posicaoExiste(int pos) {
+		return ((pos >= 0) && (pos < tamanho));
 	}
 
+	public Serie getSerieByPos(int pos) throws Exception {
+		Nodo aux;
+		
+		if(!posicaoExiste(pos)) {
+			throw new Exception("A posição informada não existe !");
+		}
+	
+		aux = primeiro;
+		for(int i = pos; i > 0; i--) {
+			aux = aux.getProximo();
+		}
+		return aux.getSerie();
+	}
 	
 	public Serie getSerieById(int id) {
 		Nodo aux = primeiro;
@@ -222,14 +215,30 @@ public class ListaFlexivel {
 				     : aux.getSerie();
 	}
 	
+	public String getListToSaveInFile() {
+		String str = "";
+		
+		Nodo aux = this.primeiro;
+		
+		while(aux != null) {
+			str += aux.getSerie().toFileFormat();
+			aux = aux.getProximo();
+		}
+		
+		return str;
+	}
+	
 	@Override
 	public String toString() {
 		String str = "";
+		
 		Nodo aux = this.primeiro;
+		
 		while(aux != null) {
-			str += aux.toString();
+			str += aux.getSerie().toString();
 			aux = aux.getProximo();
 		}
+		
 		return str;
 	}
 

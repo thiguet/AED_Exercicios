@@ -1,4 +1,3 @@
-Nome;Tipo;Duracao;Pais;Idioma;Emissora;Transmissao;Num_Temporadas;Num_Episodios
 13 Reasons Why;Série;49–61 minutos;Estados Unidos;Inglês;Netflix;31 de março de 2017 – presente;1;13
 American Horror Story;Série;39-63 min.;Estados Unidos;inglês;FX;5 de Outubro de 2011 — presente;6;73
 Anne;Série;44 minutos;Canadá;Inglês;CBC Television;19 de março de 2017 – atualmente;1;7

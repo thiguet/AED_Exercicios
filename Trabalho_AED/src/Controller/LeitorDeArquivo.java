@@ -66,31 +66,26 @@ public class LeitorDeArquivo {
 		return novaSerie;
 	}
 	
-	public void saveLista(ListaFlexivel lista, String fileName) {
+	public static void saveLista(ListaFlexivel lista, String fileName) {
 		String fileContents = "";
 		
-		fileContents += lista.toString();
-
 		try {
 			File arq = new File(fileName);
-			LeitorDeArquivo.listaSeries = new ListaFlexivel();
-					
-			if(!arq.exists()) {
-				arq.createNewFile();
-			}
 			
-			BufferedWriter bw = new BufferedWriter(new PrintWriter(new FileWriter(arq, true)));
+			fileContents = lista.getListToSaveInFile();
+			
+			if(!arq.exists())
+				arq.createNewFile();
+		
+			BufferedWriter bw = new BufferedWriter(new PrintWriter(new FileWriter(arq)));
 				
+			
 			bw.write(fileContents);
 		
-			bw.close();
+			bw.close();		
+		
 		} catch (IOException e) {
-			
-			
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-
 }

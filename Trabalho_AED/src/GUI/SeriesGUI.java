@@ -20,6 +20,9 @@ public class SeriesGUI extends GridGUI {
 		
 		this.removeRow(row);
 		
+		GridGUI.favsController.saveListInFile();
+		GridGUI.seriesController.saveListInFile();
+		
 		JOptionPane.showMessageDialog(null, "A série " + favoritada.getNome() + " foi adicionada aos favoritos.");
 	}
 }

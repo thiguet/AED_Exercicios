@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 public class MainPageGUI extends GUI {
 	
 	private static final String CODIGO_INVALIDO = "Não existe nenhuma série com esse código !";
+	
 	private static final long serialVersionUID = 1L;
 	private JButton listarSeries,
 					listarFavoritas,
@@ -59,19 +60,7 @@ public class MainPageGUI extends GUI {
 
 		this.buscarSerie.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
-		    	int codigo = Integer.parseInt(
-		    			 			JOptionPane.showInputDialog("Digite o código da série:")
-		    			 	 );
-
-		    	String resposta = GUI.favsController.getSerieToString(codigo);
-		    	
-		    	if(resposta == null) 
-		    		resposta = GUI.seriesController.getSerieToString(codigo);
-		    	
-		    	if(resposta == null)
-	    			resposta = MainPageGUI.CODIGO_INVALIDO;
-		    	 
-		    	JOptionPane.showMessageDialog(null, resposta);
+		    	buscarSerie();
 		    }
 		});	
 
@@ -96,4 +85,20 @@ public class MainPageGUI extends GUI {
 		super.dispose();
     	new OptionsGUI ();
     }
+	
+	private void buscarSerie() {
+		int codigo = Integer.parseInt(
+	 			JOptionPane.showInputDialog("Digite o código da série:")
+	 	 );
+		
+		String resposta = GUI.favsController.getSerieToString(codigo);
+		
+		if(resposta == null) 
+		resposta = GUI.seriesController.getSerieToString(codigo);
+		
+		if(resposta == null)
+		resposta = MainPageGUI.CODIGO_INVALIDO;
+		
+		JOptionPane.showMessageDialog(null, resposta);
+	}
 }

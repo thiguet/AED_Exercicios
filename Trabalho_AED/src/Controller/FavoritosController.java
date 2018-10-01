@@ -8,11 +8,11 @@ public class FavoritosController extends ListaController {
 											"Model" +
 											"\\" + 
 											"Favoritos.txt";
-
 	
 	public FavoritosController() {
 		super();
 		this.filePath = FavoritosController.favsFilePath;
+		this.getListFromFile();
 	}
 
 }

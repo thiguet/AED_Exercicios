@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import Model.Serie;
 
 public class FavoritosGUI extends GridGUI {
+	
 	private static final long serialVersionUID = 1L;
 	
 	FavoritosGUI() {
@@ -18,6 +19,9 @@ public class FavoritosGUI extends GridGUI {
 		GridGUI.seriesController.addNewSerie(favoritada);
 		
 		this.removeRow(row);
+		
+		GridGUI.favsController.saveListInFile();
+		GridGUI.seriesController.saveListInFile();
 		
 		JOptionPane.showMessageDialog(null, "A série " + favoritada.getNome() + " foi removida dos favoritos.");
 	}

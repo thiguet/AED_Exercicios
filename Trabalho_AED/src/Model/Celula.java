@@ -1,21 +1,21 @@
 package Model;
 
-public class Nodo {
+public class Celula {
 	private Serie serie; 
-	private Nodo  proximo; 
-	private Nodo  anterior;
+	private Celula  proximo; 
+	private Celula  anterior;
 
-	public Nodo() {
+	public Celula() {
 		this.serie = null;
 		this.proximo = null;
 	}
 	
-	public Nodo(Serie serie) {
+	public Celula(Serie serie) {
 		this.serie = serie;
 		this.proximo = null;
 	}
 	
-	public Nodo(Serie serie, Nodo prox) {
+	public Celula(Serie serie, Celula prox) {
 		this.serie = serie;
 		this.proximo = prox;
 	}
@@ -28,19 +28,19 @@ public class Nodo {
 		this.serie = serie;
 	}
 
-	public Nodo getProximo() {
+	public Celula getProximo() {
 		return proximo;
 	}
 
-	public void setProximo(Nodo proximo) {
+	public void setProximo(Celula proximo) {
 		this.proximo = proximo;
 	}
 
-	public Nodo getAnterior() {
+	public Celula getAnterior() {
 		return anterior;
 	}
 
-	public void setAnterior(Nodo anterior) {
+	public void setAnterior(Celula anterior) {
 		this.anterior = anterior;
 	}
 }

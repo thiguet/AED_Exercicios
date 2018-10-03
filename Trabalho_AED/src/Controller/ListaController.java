@@ -29,7 +29,7 @@ public abstract class ListaController {
 	
 	protected void getListFromFile() {
 		try {
-			this.lista = LeitorDeArquivo.lerLinha(this.filePath);
+			this.lista = LeitorDeArquivo.getSeriesListFromFile(this.filePath);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -66,18 +66,22 @@ public abstract class ListaController {
 		
 		return data;
 	}
+
+	public String getSerieToString(String name) {
+		Serie escolhida = (this.lista.getSerieByName(name));
+		
+		return (escolhida == null) 
+					? null 
+					: escolhida.toString();
+	}
 	
-	public void moveToOtherList(ListaFlexivel lista, int row) {
-		try {
-			lista.addFim(this.lista.rm(row));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+
+	public void orderByRandom() {
+		this.lista.orderByRandom();
+	}
+	
+	public void orderByMyOrdenation() {
+		this.lista.orderByMyOrdenation();
 	}
 
-	public String getSerieToString(int cod) {
-		Serie escolhida = this.lista.getSerieById(cod);
-		return (escolhida == null) 
-					? null : escolhida.toString();
-	}
 }

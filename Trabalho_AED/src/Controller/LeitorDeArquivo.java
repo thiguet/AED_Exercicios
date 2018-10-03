@@ -16,7 +16,7 @@ public class LeitorDeArquivo {
 	
 	private LeitorDeArquivo() {}
 	
-	public static ListaFlexivel lerLinha(String fileName) throws IOException {
+	public static ListaFlexivel getSeriesListFromFile(String fileName) throws IOException {
 		File arq = new File(fileName);
 		LeitorDeArquivo.listaSeries = new ListaFlexivel();
 		
@@ -41,8 +41,6 @@ public class LeitorDeArquivo {
 	
 	public static Serie getSerie(String[] linha) {
 		Serie novaSerie = new Serie();
-		
-		novaSerie.setId(LeitorDeArquivo.listaSeries.getTamanho() + 1);
 		
 		if (linha.length > 0)
 			novaSerie.setNome(linha[0] );

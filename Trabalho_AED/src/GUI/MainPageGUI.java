@@ -9,9 +9,15 @@ import javax.swing.JPanel;
 
 public class MainPageGUI extends GUI {
 	
-	private static final String CODIGO_INVALIDO = "Não existe nenhuma série com esse código !";
-	
+	private static final String NOME_NAO_EXISTE = "Não existe nenhuma série cadastrada com esse nome !";
+
 	private static final long serialVersionUID = 1L;
+	
+	private static final String LISTAR_SERIES_LABEL = "Listar Séries",
+								FAVORITOS_LABEL = "Favoritos",
+								BUSCAR_SERIE_LABEL = "Buscar Série",
+								ORDENAR_LABEL = "Ordenar Séries";
+	
 	private JButton listarSeries,
 					listarFavoritas,
 					buscarSerie,
@@ -29,10 +35,10 @@ public class MainPageGUI extends GUI {
 	private void initializeGUI () {
 		JPanel panel = new JPanel();
 		
-		this.listarSeries 	 = new JButton ("Visualizar Séries");
-		this.listarFavoritas = new JButton ("Favoritos");
-		this.buscarSerie 	 = new JButton ("Buscar uma Série");
-		this.opcao			 = new JButton ("Opção");
+		this.listarSeries 	 = new JButton (LISTAR_SERIES_LABEL);
+		this.listarFavoritas = new JButton (FAVORITOS_LABEL);
+		this.buscarSerie 	 = new JButton (BUSCAR_SERIE_LABEL);
+		this.opcao			 = new JButton (ORDENAR_LABEL);
 		
 		panel.add(listarSeries);
 		panel.add(listarFavoritas);
@@ -45,7 +51,6 @@ public class MainPageGUI extends GUI {
 	}
 
 	private void initializeComponents() {
-
 		this.listarSeries.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		    	exibirTelaSeries();
@@ -87,18 +92,21 @@ public class MainPageGUI extends GUI {
     }
 	
 	private void buscarSerie() {
-		int codigo = Integer.parseInt(
-	 			JOptionPane.showInputDialog("Digite o código da série:")
-	 	 );
+		String resultado = null,
+			   input = JOptionPane.showInputDialog("Digite o nome da série:");
 		
-		String resposta = GUI.favsController.getSerieToString(codigo);
-		
-		if(resposta == null) 
-		resposta = GUI.seriesController.getSerieToString(codigo);
-		
-		if(resposta == null)
-		resposta = MainPageGUI.CODIGO_INVALIDO;
-		
-		JOptionPane.showMessageDialog(null, resposta);
+		if(input != null) {			
+			input = input.trim();
+			
+			resultado = GUI.seriesController.getSerieToString(input);
+			
+			if(resultado == null) 
+				resultado = GUI.favsController.getSerieToString(input);
+			
+			if(resultado == null) 
+				resultado = NOME_NAO_EXISTE;
+
+			JOptionPane.showMessageDialog(null, resultado);
+		}		
 	}
 }

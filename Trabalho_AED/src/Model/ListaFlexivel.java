@@ -1,8 +1,8 @@
 package Model;
 
-public class ListaFlexivel {
-	private Nodo primeiro;
-	private Nodo ultimo;
+public class ListaFlexivel implements IDemandaExercicio {
+	private Celula primeiro;
+	private Celula ultimo;
 	private int tamanho;
 
 	public ListaFlexivel () {
@@ -15,12 +15,14 @@ public class ListaFlexivel {
 	}
 	
 	public ListaFlexivel(Serie novaSerie) {
-		this.primeiro = this.ultimo = new Nodo(novaSerie);
+		this.primeiro = this.ultimo = new Celula(novaSerie);
 		this.tamanho++;
 	}
 	
 	public void addFim(Serie novaSerie) {
-		Nodo aux = new Nodo(novaSerie);
+		Celula aux = new Celula(novaSerie);
+		
+		novaSerie.setId(this.tamanho + 1);	
 		
 		if(listaVazia()) {
 			this.primeiro = this.ultimo = aux;
@@ -35,7 +37,9 @@ public class ListaFlexivel {
 	}
 
 	public void addIni(Serie novaSerie) {
-		Nodo aux = new Nodo(novaSerie);
+		Celula aux = new Celula(novaSerie);
+		
+		novaSerie.setId(this.tamanho + 1);
 		
 		if(listaVazia()) {
 			this.primeiro = this.ultimo = aux;
@@ -51,8 +55,10 @@ public class ListaFlexivel {
 	}
 	
 	public void add(Serie novaSerie, int pos) throws Exception {
-		Nodo aux = new Nodo(novaSerie);
-		Nodo cont;
+		Celula aux = new Celula(novaSerie);
+		Celula cont;
+		
+		novaSerie.setId(this.tamanho + 1);
 		
 		if(!posicaoExiste(pos)) 
 			throw new Exception("A posição não existe !");
@@ -83,7 +89,7 @@ public class ListaFlexivel {
 		if(listaVazia())
 			throw new Exception("A lista está vazia !");
 		
-		Nodo aux = this.primeiro;
+		Celula aux = this.primeiro;
 		Serie serie = aux.getSerie();
 		
 		this.primeiro = this.primeiro.getProximo();
@@ -103,7 +109,7 @@ public class ListaFlexivel {
 		if(listaVazia())
 			throw new Exception("A lista está vazia !");
 		
-		Nodo aux = this.ultimo; 
+		Celula aux = this.ultimo; 
 		Serie serie = aux.getSerie();
 		
 		this.ultimo = this.ultimo.getAnterior();
@@ -123,7 +129,7 @@ public class ListaFlexivel {
 		if(!posicaoExiste(pos))
 			throw new Exception("A posição é inválida !");
 			
-		Nodo aux = this.primeiro; 
+		Celula aux = this.primeiro; 
 		Serie serie;
 	
 		while(aux != null && pos > 0 ) {
@@ -135,9 +141,9 @@ public class ListaFlexivel {
 			throw new Exception("Não foi possível remover essa Série !");
 		
 		if(aux == this.primeiro) {
-			aux = new Nodo(this.rmIni());
+			aux = new Celula(this.rmIni());
 		} else if(aux == this.ultimo) {
-			aux = new Nodo(this.rmFim());
+			aux = new Celula(this.rmFim());
 		} else {
 			aux.getAnterior().setProximo(aux.getProximo());
 			aux.getProximo().setAnterior(aux.getAnterior());
@@ -151,36 +157,6 @@ public class ListaFlexivel {
 		return serie;
 	}
 
-	public Serie rm(double pos) throws Exception {
-		if(listaVazia())
-			throw new Exception("A lista está vazia !");
-			
-		Nodo aux = this.primeiro; 
-		Serie serie;
-	
-		while(aux != null && !(aux.getSerie().getId() == pos) ) {
-			aux = aux.getProximo();
-		}
-		
-		if(aux == null) 
-			throw new Exception("Não existe nenhuma série com esse código !");
-		
-		if(aux == this.primeiro) {
-			this.rmIni();
-		} else if(aux == this.ultimo) {
-			this.rmFim();
-		} else {
-			aux.getAnterior().setProximo(aux.getProximo());
-			aux.getProximo().setAnterior(aux.getAnterior());
-		}
-		
-		serie = aux.getSerie();
-		aux = null;
-		this.tamanho--;
-		
-		return serie;
-	}
-
 	private boolean listaVazia() {
 		return this.tamanho == 0;
 	}
@@ -190,7 +166,7 @@ public class ListaFlexivel {
 	}
 
 	public Serie getSerieByPos(int pos) throws Exception {
-		Nodo aux;
+		Celula aux;
 		
 		if(!posicaoExiste(pos)) {
 			throw new Exception("A posição informada não existe !");
@@ -203,22 +179,23 @@ public class ListaFlexivel {
 		return aux.getSerie();
 	}
 	
-	public Serie getSerieById(int id) {
-		Nodo aux = primeiro;
+	public Serie getSerieByName(String name) {
+		Celula aux = primeiro;
 		
-		while(aux != null && (id != aux.getSerie().getId())) {
+		while( aux != null && 
+			   !name.equals(aux.getSerie().getNome()) ) {
 			aux = aux.getProximo();
 		}
 		
-		return aux == null  
-				     ? null
-				     : aux.getSerie();
+		return (aux == null) 
+				? null
+				: aux.getSerie();
 	}
 	
 	public String getListToSaveInFile() {
 		String str = "";
 		
-		Nodo aux = this.primeiro;
+		Celula aux = this.primeiro;
 		
 		while(aux != null) {
 			str += aux.getSerie().toFileFormat();
@@ -232,7 +209,7 @@ public class ListaFlexivel {
 	public String toString() {
 		String str = "";
 		
-		Nodo aux = this.primeiro;
+		Celula aux = this.primeiro;
 		
 		while(aux != null) {
 			str += aux.getSerie().toString();
@@ -240,6 +217,34 @@ public class ListaFlexivel {
 		}
 		
 		return str;
+	}
+
+	@Override
+	public void orderByMyOrdenation() {
+		// Write that code boy	
+	}
+
+	@Override
+	public void orderByRandom() {
+		int lucky = (int) (Math.random() * this.tamanho);
+		Serie aux = null;
+		
+		for(int cont = this.tamanho / 2; cont > 0 ; cont--) {
+			try {
+				aux = this.rm(lucky);
+			} catch (Exception e) {
+				// Write that code boy
+			}
+			
+			lucky = (int) (Math.random() * this.tamanho);
+			
+			
+			try {
+				this.add(aux, lucky);
+			} catch (Exception e) {
+				// Write that code boy
+			}
+		}
 	}
 
 }

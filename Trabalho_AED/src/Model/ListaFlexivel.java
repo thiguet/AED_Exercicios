@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Random;
+
 public class ListaFlexivel implements IDemandaExercicio {
 	private Celula primeiro;
 	private Celula ultimo;
@@ -53,7 +55,7 @@ public class ListaFlexivel implements IDemandaExercicio {
 			this.tamanho++;
 		}
 	}
-	
+
 	public void add(Serie novaSerie, int pos) throws Exception {
 		Celula aux = new Celula(novaSerie);
 		Celula cont;
@@ -70,7 +72,7 @@ public class ListaFlexivel implements IDemandaExercicio {
 		} else {
 			cont = this.primeiro;
 			
-			while(pos >= 0) {
+			while(pos > 0) {
 				pos--;
 				cont = cont.getProximo();
 			}
@@ -221,28 +223,67 @@ public class ListaFlexivel implements IDemandaExercicio {
 
 	@Override
 	public void orderByMyOrdenation() {
-		// Write that code boy	
+		// Write that code boy
+		
+		// Finish that code boy
+//		Celula menor = this.primeiro;
+//		Celula aux2 = null;
+//		
+//		int cont = 0;
+//		
+//		for(int i = 0 ; i < this.tamanho ; i++)  {
+//			cont = i;
+//			
+//			while(cont > 0) {
+//				menor = menor.getProximo();
+//			}
+//			
+//			aux2 = menor;
+//			
+//			while (aux2 !=  null) {
+//				if(menor.getSerie().getNome().compareTo(aux2.getSerie().getNome()) > 0) {
+//					menor = aux2;
+//				}				
+//				
+//				menor = menor.getProximo();
+//			}
+//			
+//			this.rm(menor);
+//			this.add(menor, i);
+//		}
+		
 	}
 
 	@Override
 	public void orderByRandom() {
-		int lucky = (int) (Math.random() * this.tamanho);
+		Random rand = new Random();
+		int lucky;
 		Serie aux = null;
 		
 		for(int cont = this.tamanho / 2; cont > 0 ; cont--) {
+			lucky = rand.nextInt(this.tamanho);
+			
 			try {
 				aux = this.rm(lucky);
 			} catch (Exception e) {
-				// Write that code boy
+				e.printStackTrace();
 			}
 			
-			lucky = (int) (Math.random() * this.tamanho);
-			
-			
 			try {
-				this.add(aux, lucky);
+				this.addFim(aux);
 			} catch (Exception e) {
-				// Write that code boy
+				e.printStackTrace();
+			}
+		}
+		
+		// Fix ID's
+		for (int i = 0 ; i <= this.tamanho / 2 && this.tamanho > 0 ; i++) {
+			try {
+				this.getSerieByPos(i).setId(i + 1);
+				this.getSerieByPos(this.tamanho - i - 1).setId(this.tamanho - i);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}

@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 public class OptionsGUI extends BackGUI {
 	
@@ -51,6 +52,11 @@ public class OptionsGUI extends BackGUI {
 		    public void actionPerformed(ActionEvent e) {
 		    	GUI.seriesController.orderByMyOrdenation();
 		    	GUI.favsController.orderByMyOrdenation();
+		    	
+		    	JOptionPane.showMessageDialog(null, "A ordenação alfabética foi escolhida !");
+		    	
+		    	new MainPageGUI();
+				dispose();
 			}
 		});
 
@@ -58,7 +64,12 @@ public class OptionsGUI extends BackGUI {
 		    public void actionPerformed(ActionEvent e) {
 		    	GUI.seriesController.orderByRandom();
 		    	GUI.favsController.orderByRandom();
-			}
+		    	
+		    	JOptionPane.showMessageDialog(null, "A ordenação aleatória foi escolhida !");
+		    	
+		    	new MainPageGUI();
+				dispose();
+		    }
 		});		
 	}
 	

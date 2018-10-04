@@ -88,7 +88,7 @@ public class ListaFlexivel implements IDemandaExercicio {
 			this.tamanho++;
 		}
 	}
-		
+	
 	public Serie rmIni() throws Exception {
 		if(listaVazia())
 			throw new Exception("A lista está vazia !");
@@ -97,12 +97,12 @@ public class ListaFlexivel implements IDemandaExercicio {
 		Serie serie = aux.getSerie();
 		
 		this.primeiro = this.primeiro.getProximo();
+		if(this.primeiro == null)
+			this.primeiro = this.ultimo;
 		
-		if(this.primeiro == null) 
-			this.primeiro = this.ultimo = null;
-		else
-			this.primeiro.setAnterior(null);
-		
+		aux.setProximo(null);
+		this.primeiro.setAnterior(null);
+			
 		aux = null;
 		this.tamanho--;
 		
@@ -116,9 +116,12 @@ public class ListaFlexivel implements IDemandaExercicio {
 		Celula aux = this.ultimo; 
 		Serie serie = aux.getSerie();
 		
-		this.ultimo = this.ultimo.getAnterior();
+		this.ultimo = this.ultimo.getAnterior();		
 		
-		this.ultimo.setProximo(null);
+		if(this.ultimo == null)
+			this.ultimo = this.primeiro = null;
+		else
+			this.ultimo.setProximo(null);
 		
 		aux = null;
 		this.tamanho--;
@@ -135,22 +138,24 @@ public class ListaFlexivel implements IDemandaExercicio {
 			
 		Celula aux = this.primeiro; 
 		Serie serie;
-	
-		while(aux != null && pos > 0 ) {
-			aux = aux.getProximo();
-			pos--;
-		}
 		
-		if(aux == null) 
-			throw new Exception("Não foi possível remover essa Série !");
-		
-		if(aux == this.primeiro) {
+		if(pos == 0) {
 			aux = new Celula(this.rmIni());
-		} else if(aux == this.ultimo) {
+		} else if(pos == this.tamanho || pos == this.tamanho - 1 ) {
 			aux = new Celula(this.rmFim());
 		} else {
-			aux.getAnterior().setProximo(aux.getProximo());
-			aux.getProximo().setAnterior(aux.getAnterior());
+			while(pos > 0 ) {
+				aux = aux.getProximo();
+				pos--;
+			}
+			
+			if(aux == null) 
+				throw new Exception("Não foi possível remover essa Série !");
+			
+			if(aux.getAnterior() != null)
+				aux.getAnterior().setProximo(aux.getProximo());
+			if(aux.getProximo() != null)
+				aux.getProximo().setAnterior(aux.getAnterior());
 			
 			this.tamanho--;
 		}
@@ -275,7 +280,7 @@ public class ListaFlexivel implements IDemandaExercicio {
 	public void orderByRandom() {
 		Random rand = new Random();
 		int lucky = 0;
-		for(int cont = this.tamanho / 2; cont > 0 ; cont--) {
+		for(int cont = this.tamanho; cont > 0 ; cont--) {
 			lucky = rand.nextInt(this.tamanho);
 			
 			try {
@@ -291,12 +296,10 @@ public class ListaFlexivel implements IDemandaExercicio {
 
 	private void fixIds() {
 		if(this.tamanho > 0) {
-			for (int i = 0 ; i <= this.tamanho / 2 ; i++) {
+			for (int i = 0 ; i < this.tamanho; i++) {
 				try {
 					this.getSerieByPos(i).setId(i + 1);
-					this.getSerieByPos(this.tamanho - i - 1).setId(this.tamanho - i);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

@@ -51,7 +51,6 @@ public class OptionsGUI extends BackGUI {
 		this.myOrdenation.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		    	GUI.seriesController.orderByMyOrdenation();
-		    	GUI.favsController.orderByMyOrdenation();
 		    	
 		    	GUI.seriesController.saveListInFile();
 		    	GUI.favsController.saveListInFile();
@@ -66,7 +65,9 @@ public class OptionsGUI extends BackGUI {
 		this.random.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		    	GUI.seriesController.orderByRandom();
-		    	GUI.favsController.orderByRandom();
+
+		    	GUI.seriesController.saveListInFile();
+		    	GUI.favsController.saveListInFile();
 		    	
 		    	JOptionPane.showMessageDialog(null, "A ordenação aleatória foi escolhida !");
 		    	

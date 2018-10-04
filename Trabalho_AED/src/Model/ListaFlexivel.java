@@ -2,6 +2,8 @@ package Model;
 
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class ListaFlexivel implements IDemandaExercicio {
 	private Celula primeiro;
 	private Celula ultimo;
@@ -62,14 +64,14 @@ public class ListaFlexivel implements IDemandaExercicio {
 		
 		novaSerie.setId(this.tamanho + 1);
 		
-		if(!posicaoExiste(pos)) 
-			throw new Exception("A posição não existe !");
-		
 		if(pos == 0) {
 			this.addIni(novaSerie);
-		} else if(pos == this.tamanho - 1) {
+		} else if(pos == this.tamanho) {
 			this.addFim(novaSerie);
 		} else {
+			if(!posicaoExiste(pos)) 
+				throw new Exception("A posição não existe !");
+			
 			cont = this.primeiro;
 			
 			while(pos > 0) {
@@ -225,67 +227,88 @@ public class ListaFlexivel implements IDemandaExercicio {
 	public void orderByMyOrdenation() {
 		// Write that code boy
 		
-		// Finish that code boy
-//		Celula menor = this.primeiro;
-//		Celula aux2 = null;
-//		
-//		int cont = 0;
-//		
-//		for(int i = 0 ; i < this.tamanho ; i++)  {
-//			cont = i;
-//			
-//			while(cont > 0) {
-//				menor = menor.getProximo();
-//			}
-//			
-//			aux2 = menor;
-//			
-//			while (aux2 !=  null) {
-//				if(menor.getSerie().getNome().compareTo(aux2.getSerie().getNome()) > 0) {
-//					menor = aux2;
-//				}				
-//				
-//				menor = menor.getProximo();
-//			}
-//			
-//			this.rm(menor);
-//			this.add(menor, i);
-//		}
+		Celula menor, aux2;
+		
+		int cont = 0;
+		int menorPos = 0;
+		
+		try {
+			for(int i = 0 ; i < this.tamanho ; i++)  {
+				menor = this.primeiro;
+				aux2 = null;
+				
+				menorPos = i;
+				cont = i;
+				
+				while(cont > 0) {
+					menor = menor.getProximo();
+					cont--;
+				}
+				
+				aux2 = menor;
+				
+				for(int j = i ; j < this.tamanho ; j++) {				
+					int test = menor.getSerie().getNome().compareTo(aux2.getSerie().getNome());
+					if(test > 0) {
+						menorPos = j;
+						menor = aux2;
+					}				
+					
+					aux2 = aux2.getProximo();
+				}
+			
+				this.add(this.rm(menorPos), i);
+					
+				menor = null;
+			}
+			
+			this.fixIds();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
 	@Override
 	public void orderByRandom() {
 		Random rand = new Random();
-		int lucky;
-		Serie aux = null;
-		
+		int lucky = 0;
 		for(int cont = this.tamanho / 2; cont > 0 ; cont--) {
 			lucky = rand.nextInt(this.tamanho);
 			
 			try {
-				aux = this.rm(lucky);
+				this.addFim(this.rm(lucky));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			
-			try {
-				this.addFim(aux);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		}
 		
-		// Fix ID's
-		for (int i = 0 ; i <= this.tamanho / 2 && this.tamanho > 0 ; i++) {
-			try {
-				this.getSerieByPos(i).setId(i + 1);
-				this.getSerieByPos(this.tamanho - i - 1).setId(this.tamanho - i);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		this.fixIds();
+	}
+
+	private void fixIds() {
+		if(this.tamanho > 0) {
+			for (int i = 0 ; i <= this.tamanho / 2 ; i++) {
+				try {
+					this.getSerieByPos(i).setId(i + 1);
+					this.getSerieByPos(this.tamanho - i - 1).setId(this.tamanho - i);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		}
 	}
-
+	
+	public void printList() {
+		Celula aux = this.primeiro;
+		
+		while(aux != null) {
+			JOptionPane.showMessageDialog(null, aux.getSerie().toString());
+			aux = aux.getProximo();
+		}
+	}
 }

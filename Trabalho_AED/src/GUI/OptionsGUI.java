@@ -53,6 +53,9 @@ public class OptionsGUI extends BackGUI {
 		    	GUI.seriesController.orderByMyOrdenation();
 		    	GUI.favsController.orderByMyOrdenation();
 		    	
+		    	GUI.seriesController.saveListInFile();
+		    	GUI.favsController.saveListInFile();
+		    	
 		    	JOptionPane.showMessageDialog(null, "A ordenação alfabética foi escolhida !");
 		    	
 		    	new MainPageGUI();

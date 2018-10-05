@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -16,12 +17,14 @@ public class MainPageGUI extends GUI {
 	private static final String LISTAR_SERIES_LABEL = "Listar Séries",
 								FAVORITOS_LABEL = "Favoritos",
 								BUSCAR_SERIE_LABEL = "Buscar Série",
-								ORDENAR_LABEL = "Ordenar Séries";
+								ORDENAR_LABEL = "Ordenar Séries",
+								SUGERIR_SERIE = "Sugerir Série";
 	
 	private JButton listarSeries,
 					listarFavoritas,
 					buscarSerie,
-					opcao;
+					opcao,
+					sugerirSerie;
 
 	public static void main (String args[]) {
 		new MainPageGUI ();
@@ -39,11 +42,13 @@ public class MainPageGUI extends GUI {
 		this.listarFavoritas = new JButton (FAVORITOS_LABEL);
 		this.buscarSerie 	 = new JButton (BUSCAR_SERIE_LABEL);
 		this.opcao			 = new JButton (ORDENAR_LABEL);
+		this.sugerirSerie    = new JButton (SUGERIR_SERIE); 
 		
 		panel.add(listarSeries);
 		panel.add(listarFavoritas);
 		panel.add(buscarSerie);
 		panel.add(opcao);
+		panel.add(sugerirSerie);
 		
 		super.add(panel);
 		
@@ -72,6 +77,12 @@ public class MainPageGUI extends GUI {
 		this.opcao.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		    	exibirOpcao();
+		    }
+		});	
+		
+		this.sugerirSerie.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		    	sugerirSerie();
 		    }
 		});	
 	}
@@ -108,5 +119,24 @@ public class MainPageGUI extends GUI {
 
 			JOptionPane.showMessageDialog(null, resultado);
 		}		
+	}
+	
+	private void sugerirSerie() {
+		Random rand = new Random();
+		
+		int tamanho = GUI.seriesController.getLista().getTamanho();
+		try {
+			if( tamanho > 0 ) {
+				int random = rand.nextInt(tamanho);
+				JOptionPane.showMessageDialog(null, "Talvez você também curta a série: " +  GUI.seriesController.getLista().getSerieByPos(random));
+				
+			} else {
+				JOptionPane.showMessageDialog(null, "Não existem sugestões para você ! *_* ");
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

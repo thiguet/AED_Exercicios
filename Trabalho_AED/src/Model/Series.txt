@@ -1,54 +1,59 @@
-13 Reasons Why;S?rie;31 de mar?o de 2017 ? presente;49?61 minutos;Estados Unidos;Ingl?s;Netflix;1;13
-American Horror Story;S?rie;5 de Outubro de 2011 ? presente;39-63 min.;Estados Unidos;ingl?s;FX;6;73
-Anne;S?rie;19 de mar?o de 2017 ? atualmente;44 minutos;Canad?;Ingl?s;CBC Television;1;7
-Arrow;S?rie;10 de outubro de 2012 ? presente;40?43 minutos;Estados Unidos;Ingl?s;The CW;5;115
-Blindspot;S?rie;21 de setembro de 2015 ? presente;42-43 minutos;Estados Unidos;(em ingl?s);NBC;1;22
-Castle;S?rie;9 de mar?o de 2009 ? 16 de maio de 2016;43 minutos;Estados Unidos;Ingl?s;ABC;8;173
-Criminal Minds;S?rie;22 de Setembro de 2005 ? Presente;45 minutos;Estados Unidos;Ingl?s;CBS;12;277
-Daredevil;Webs?rie;10 de abril de 2015;48?61 minutos;Estados Unidos;Ingl?s;Netflix;3;26
-Dexter;S?rie;1 de outubro de 2006 - 22 de setembro de 2013;45?60 minutos;Estados Unidos;Ingl?s;Showtime;8;96
-Downton Abbey;S?rie;26 de setembro de 2010 - 25 de dezembro de 2015;45-67 min;Reino Unido;Ingl?s;ITV;6;52
-Everybody Hates Chris;Sitcom;22 de setembro de 2005 - 8 de maio de 2009;22 min.;Estados Unidos;Ingl?s;UPN;4;88
-Forever;S?rie;22 de setembro de 2014 ? 5 de maio de 2015;43 minutos;Estados Unidos;Ingl?s;ABC;1;22
-Game of Thrones;S?rie;17 de abril de 2011 ? presente;50?69 minutos;Estados Unidos;Ingl?s;HBO;7;61
-Gossip Girl;S?rie;19 de setembro de 2007 ? 17 de dezembro de 2012;39?42 minutos;Estados Unidos;Ingl?s;The CW;6;121
-Gotham;S?rie;22 de setembro de 2014 - presente;40-49 minutos;Estados Unidos;Ingl?s;FOX;3;88
-Grey's Anatomy;S?rie;27 de Mar?o de 2005 - presente;42 min.;Estados Unidos;Ingl?s;ABC;14;293
-Grimm;S?rie;21 de outubro de 2011 - 31 de mar?o de 2017;42 minutos;Estados Unidos;Ingl?s;NBC;6;123
-House of Cards;Webs?rie;1 de fevereiro de 2013 ? presente;55 min.;Estados Unidos;Ingl?s;Netflix;5;65
-How I Met Your Mother;Sitcom;19 de setembro de 2005?31 de mar?o de 2014;23 min.;Estados Unidos;Ingl?s;CBS;9;208
-How to Get Away with Murder;S?rie;25 de setembro de 2014 ? presente;43 minutos;Estados Unidos;Ingl?s;ABC;3;45
-Jessica Jones;Webs?rie;20 de novembro de 2015 ? presente;46-55 minutos;Estados Unidos;Ingl?s;Netflix;2;13
-Lucifer;S?rie;25 de janeiro de 2016(2016-01-25) ? presente;43 minutos;Estados Unidos;Ingl?s;Fox;2;31
-My Wife and Kids;Sitcom;28 de mar?o de 2001 ? 17 de maio de 2005;23 min.;Estados Unidos;Ingl?s;ABC;5;123
-Narcos;S?rie;28 de agosto de 2015 - presente;43 a 57 minutos;Estados Unidos;Ingl?s;Netflix;2;20
-Once Upon a Time;S?rie;23 de outubro de 2011 ? atualmente;43 minutos;Estados Unidos;Ingl?s;ABC;6;133
-Orange Is the New Black;S?rie;11 de julho de 2013 ? presente;51?92 minutos;Estados Unidos;Ingl?s;Netflix;5;65
-Orphan Black;S?rie;30 de mar?o de 2013 ? atualmente;51?92 minutos;Canad?;Ingl?s;Space;5;50
-Os Simpsons;S?rie de desenho animado;17 de dezembro de 1989 ? presente;21?24 minutos;Estados Unidos;Ingl?s;Fox;28;618
-Outlander;S?rie;9 de agosto de 2014 - presente;50 min.;Reino Unido;ingl?s;Starz;2;29
-Penny Dreadful;S?rie;11 de maio de 2014 - 19 de junho de 2016;50 min.;Reino Unido;ingl?s;Showtime;3;27
-Pretty Little Liars; - ;8 de junho de 2010?27 de junho de 2017;40?45 minutos;Estados Unidos;Ingl?s;Freeform;7;160
-Prison Break;S?rie;29 de agosto de 2005 ? 30 de maio de 2017;42 minutos;Estados Unidos;Ingl?s;Fox;5;90
-Reign;S?rie;17 de outubro de 2013 -  16 de junho de 2017;42 minutos;Estados Unidos;Ingl?s;The CW;4;78
-Scorpion;S?rie;22 de setembro de 2014 ? presente;51?92 minutos;Estados Unidos;ingl?s;CBS;3;71
-Sense8;Webs?rie;5 de junho de 2015 ? atualmente;45?66 minutos;Estados Unidos;Ingl?s;Netflix;2;23
-Sherlock;S?rie;25 de julho de 2010 ? presente;85-90 minutos;Reino Unido;Ingl?s;BBC One;4;13
-Smallville;S?rie; 16 de Outubro de 2001 ? 13 de maio de 2011;51?92 minutos;Estados Unidos;Ingl?s;The WB;10;217
-Sons of Anarchy;S?rie;3 de Setembro de 2008 - 9 de Dezembro de 2014;50 min.;Estados Unidos;Ingl?s;FX;7;92
-Stranger Things;S?rie;15 de julho de 2016 ? presente;42?55 minutos;Estados Unidos;Ingl?s;Netflix;1;8
-Supernatural;S?rie;13 de setembro de 2005 ? presente;38?45 minutos;Estados Unidos;Ingl?s;The WB;12;264
-Teen Wolf;S?rie;5 de junho de 2011 ? presente;42 min.;Estados Unidos;Ingl?s;MTV;6;90
-The 100;S?rie;19 de mar?o de 2014(2014-03-19) ? presente;42 minutos;Estados Unidos;Ingl?s;The CW;4;58
-The 4400;S?rie;11 de julho de 2004 - 16 de setembro de 2007;42 minutos;Estados Unidos;Ingl?s;USA Network;4;44
-The Big Bang Theory;S?rie;24 de setembro de 2007 - presente;23 min.;Estados Unidos;ingl?s;CBS;10;231
-The Flash;S?rie;7 de outubro de 2014(2014-10-07) ? presente;42?45 minutos;Estados Unidos;Ingl?s;The CW;3;69
-The Fresh Prince of Bel-Air;Sitcom;10 de Setembro de 1990 ? 20 de Maio de 1996;23 mim.;Estados Unidos;Ingl?s;NBC;6;148
-The Originals;S?rie;3 de outubro de 2013 - presente;45 minutos;Estados Unidos;Ingl?s;The CW;4;79
-The Ranch;Webs?rie;1 de abril de 2016;28 - 32 minutos;Estados Unidos;ingl?s;Netflix;2;30
-The Vampire Diaries;S?rie;10 de setembro de 2009 ? 10 de mar?o de 2017;42 minutos;Estados Unidos;Ingl?s;The CW;8;171
-The Walking Dead;S?rie;31 de outubro de 2010 ? presente;42?67 minutos;Estados Unidos;Ingl?s;AMC;7;99
-True Detective;S?rie;12 de janeiro de 2014 ? 9 de agosto de 2015;54 - 60 minutos;Estados Unidos;ingl?s;HBO;2;16
-Under the Dome;S?rie;24 de junho de 2013 - 10 de setembro de 2015;45 minutos;Estados Unidos;Ingl?s;CBS;3;39
-Vikings;S?rie;3 de mar?o de 2013 - presente;45 minutos;Canad? / Irlanda;Ingl?s;History;4;49
-Westworld;S?rie;2 de outubro de 2016 ? presente;57?91 minutos;Estados Unidos;Ingl?s;HBO;1;10
+13 Reasons Why;Série;Estados Unidos;Inglês;Netflix;31 de março de 2017 – presente;49–61 minutos;1;13
+American Horror Story;Série;Estados Unidos;inglês;FX;5 de Outubro de 2011 — presente;39-63 min.;6;73
+Anne;Série;Canadá;Inglês;CBC Television;19 de março de 2017 – atualmente;44 minutos;1;7
+Arrow;Série;Estados Unidos;Inglês;The CW;10 de outubro de 2012 – presente;40–43 minutos;5;115
+Black Mirror;Série;Reino Unido;Inglês;Channel 4;4 de dezembro de 2011 – presente;44–89 minutos;3;13
+Blindspot;Série;Estados Unidos;(em inglês);NBC;21 de setembro de 2015 – presente;42-43 minutos;1;22
+Breaking Bad;Série;Estados Unidos;Inglês;AMC;20 de janeiro de 2008 —;47–58 minutos;5;62
+Castle;Série;Estados Unidos;Inglês;ABC;9 de março de 2009 – 16 de maio de 2016;43 minutos;8;173
+Criminal Minds;Série;Estados Unidos;Inglês;CBS;22 de Setembro de 2005 – Presente;45 minutos;12;277
+Daredevil;Websérie;Estados Unidos;Inglês;Netflix;10 de abril de 2015;48–61 minutos;3;26
+Dexter;Série;Estados Unidos;Inglês;Showtime;1 de outubro de 2006 - 22 de setembro de 2013;45–60 minutos;8;96
+Doctor Who;Série;Reino Unido;Inglês;BBC One;23 de novembro de 1963 – atualmente;Episódios regulares;26;819
+Downton Abbey;Série;Reino Unido;Inglês;ITV;26 de setembro de 2010 - 25 de dezembro de 2015;45-67 min;6;52
+Everybody Hates Chris;Sitcom;Estados Unidos;Inglês;UPN;22 de setembro de 2005 - 8 de maio de 2009;22 min.;4;88
+Forever;Série;Estados Unidos;Inglês;ABC;22 de setembro de 2014 – 5 de maio de 2015;43 minutos;1;22
+Friends;Sitcom;Estados Unidos;inglês;NBC;22 de setembro de 1994 – 6 de maio de 2004;22 min. ;10;236
+Game of Thrones;Série;Estados Unidos;Inglês;HBO;17 de abril de 2011 – presente;50–69 minutos;7;61
+Gossip Girl;Série;Estados Unidos;Inglês;The CW;19 de setembro de 2007 – 17 de dezembro de 2012;39–42 minutos;6;121
+Gotham;Série;Estados Unidos;Inglês;FOX;22 de setembro de 2014 - presente;40-49 minutos;3;88
+Grey's Anatomy;Série;Estados Unidos;Inglês;ABC;27 de Março de 2005 - presente;42 min.;14;293
+Grimm;Série;Estados Unidos;Inglês;NBC;21 de outubro de 2011 - 31 de março de 2017;42 minutos;6;123
+House of Cards;Websérie;Estados Unidos;Inglês;Netflix;1 de fevereiro de 2013 – presente;55 min.;5;65
+How I Met Your Mother;Sitcom;Estados Unidos;Inglês;CBS;19 de setembro de 2005–31 de março de 2014;23 min.;9;208
+How to Get Away with Murder;Série;Estados Unidos;Inglês;ABC;25 de setembro de 2014 – presente;43 minutos;3;45
+Jessica Jones;Websérie;Estados Unidos;Inglês;Netflix;20 de novembro de 2015 – presente;46-55 minutos;2;13
+Lucifer;Série;Estados Unidos;Inglês;Fox;25 de janeiro de 2016(2016-01-25) – presente;43 minutos;2;31
+My Wife and Kids;Sitcom;Estados Unidos;Inglês;ABC;28 de março de 2001 – 17 de maio de 2005;23 min.;5;123
+Narcos;Série;Estados Unidos;Inglês;Netflix;28 de agosto de 2015 - presente;43 a 57 minutos;2;20
+Once Upon a Time;Série;Estados Unidos;Inglês;ABC;23 de outubro de 2011 – atualmente;43 minutos;6;133
+Orange Is the New Black;Série;Estados Unidos;Inglês;Netflix;11 de julho de 2013 – presente;51–92 minutos;5;65
+Orphan Black;Série;Canadá;Inglês;Space;30 de março de 2013 – atualmente;51–92 minutos;5;50
+Os Simpsons;Série de desenho animado;Estados Unidos;Inglês;Fox;17 de dezembro de 1989 – presente;21–24 minutos;28;618
+Outlander;Série;Reino Unido;inglês;Starz;9 de agosto de 2014 - presente;50 min.;2;29
+Penny Dreadful;Série;Reino Unido;inglês;Showtime;11 de maio de 2014 - 19 de junho de 2016;50 min.;3;27
+Pretty Little Liars; - ;Estados Unidos;Inglês;Freeform;8 de junho de 2010–27 de junho de 2017;40–45 minutos;7;160
+Prison Break;Série;Estados Unidos;Inglês;Fox;29 de agosto de 2005 – 30 de maio de 2017;42 minutos;5;90
+Reign;Série;Estados Unidos;Inglês;The CW;17 de outubro de 2013 -  16 de junho de 2017;42 minutos;4;78
+Scorpion;Série;Estados Unidos;inglês;CBS;22 de setembro de 2014 – presente;51–92 minutos;3;71
+Sense8;Websérie;Estados Unidos;Inglês;Netflix;5 de junho de 2015 – atualmente;45–66 minutos;2;23
+Sherlock;Série;Reino Unido;Inglês;BBC One;25 de julho de 2010 – presente;85-90 minutos;4;13
+Smallville;Série;Estados Unidos;Inglês;The WB; 16 de Outubro de 2001 – 13 de maio de 2011;51–92 minutos;10;217
+Sons of Anarchy;Série;Estados Unidos;Inglês;FX;3 de Setembro de 2008 - 9 de Dezembro de 2014;50 min.;7;92
+Stranger Things;Série;Estados Unidos;Inglês;Netflix;15 de julho de 2016 – presente;42–55 minutos;1;8
+Suits;Série;Estados Unidos;Inglês;USA Network;23 de junho de 2011 - presente;90 minutos;6;92
+Supernatural;Série;Estados Unidos;Inglês;The WB;13 de setembro de 2005 – presente;38–45 minutos;12;264
+Teen Wolf;Série;Estados Unidos;Inglês;MTV;5 de junho de 2011 – presente;42 min.;6;90
+The 100;Série;Estados Unidos;Inglês;The CW;19 de março de 2014(2014-03-19) – presente;42 minutos;4;58
+The 4400;Série;Estados Unidos;Inglês;USA Network;11 de julho de 2004 - 16 de setembro de 2007;42 minutos;4;44
+The Big Bang Theory;Série;Estados Unidos;inglês;CBS;24 de setembro de 2007 - presente;23 min.;10;231
+The Flash;Série;Estados Unidos;Inglês;The CW;7 de outubro de 2014(2014-10-07) – presente;42–45 minutos;3;69
+The Fresh Prince of Bel-Air;Sitcom;Estados Unidos;Inglês;NBC;10 de Setembro de 1990 – 20 de Maio de 1996;23 mim.;6;148
+The Originals;Série;Estados Unidos;Inglês;The CW;3 de outubro de 2013 - presente;45 minutos;4;79
+The Ranch;Websérie;Estados Unidos;inglês;Netflix;1 de abril de 2016;28 - 32 minutos;2;30
+The Vampire Diaries;Série;Estados Unidos;Inglês;The CW;10 de setembro de 2009 – 10 de março de 2017;42 minutos;8;171
+The Walking Dead;Série;Estados Unidos;Inglês;AMC;31 de outubro de 2010 – presente;42–67 minutos;7;99
+True Detective;Série;Estados Unidos;inglês;HBO;12 de janeiro de 2014 – 9 de agosto de 2015;54 - 60 minutos;2;16
+Under the Dome;Série;Estados Unidos;Inglês;CBS;24 de junho de 2013 - 10 de setembro de 2015;45 minutos;3;39
+Westworld;Série;Estados Unidos;Inglês;HBO;2 de outubro de 2016 – presente;57–91 minutos;1;10
+White Collar;Série;Estados Unidos;inglês;USA Network;23 de Outubro de 2009 – 18 de Dezembro de 2014;42 min. aprox.;6;81

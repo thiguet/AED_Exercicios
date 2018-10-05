@@ -1,6 +1,1 @@
-Black Mirror;S?rie;4 de dezembro de 2011 ? presente;44?89 minutos;Reino Unido;Ingl?s;Channel 4;3;13
-Breaking Bad;S?rie;20 de janeiro de 2008 ?;47?58 minutos;Estados Unidos;Ingl?s;AMC;5;62
-Doctor Who;S?rie;23 de novembro de 1963 ? atualmente;Epis?dios regulares;Reino Unido;Ingl?s;BBC One;26;819
-Friends;Sitcom;22 de setembro de 1994 ? 6 de maio de 2004;22 min. ;Estados Unidos;ingl?s;NBC;10;236
-White Collar;S?rie;23 de Outubro de 2009 ? 18 de Dezembro de 2014;42 min. aprox.;Estados Unidos;ingl?s;USA Network;6;81
-Suits;S?rie;23 de junho de 2011 - presente;90 minutos;Estados Unidos;Ingl?s;USA Network;6;92
+Vikings;Série;Canadá / Irlanda;Inglês;History;3 de março de 2013 - presente;45 minutos;4;49

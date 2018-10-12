@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
-import Model.ListaFlexivel;
+import ListaFlexivel;
 import Model.Serie;
 
 public class LeitorDeArquivo {

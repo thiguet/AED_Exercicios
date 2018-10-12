@@ -2,7 +2,7 @@ package Controller;
 
 import java.io.IOException;
 
-import Model.ListaFlexivel;
+import ListaFlexivel;
 import Model.Serie;
 
 public abstract class ListaController {

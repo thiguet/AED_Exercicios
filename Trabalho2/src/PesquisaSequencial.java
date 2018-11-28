@@ -1,32 +1,48 @@
+import java.util.List;
 
-public class PesquisaSequencial implements Pesquisa {
-	private String[] memoria;
+import model.Word;
+import util.Config;
+
+public class PesquisaSequencial extends AbstractSearch {
+	private Word[] memoria;
 	
-	PesquisaSequencial() {
-		this.memoria = new String [Main.TAM_MAX_PALAVRAS];
+	PesquisaSequencial(String fileName) {
+		super(fileName);
+		this.memoria = new Word [Config.TAM_MAX_PALAVRAS];
 	}
-	
+
 	@Override
-	public boolean pesquisar(String nome) {
-		
-		
+	public boolean exists(String word) {
+		for(int i = 0 ;  i < memoria.length; i++ ) {
+			if(memoria[i].equals(word)) {
+				
+			}
+		}
 		
 		return false;
 	}
 
 	@Override
-	public void inserir(String palavra) {
+	public void add(List<String> content) {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void imprimir() {
+	public void alphabeticalPrint() {
+		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 //  Faça  um  programa  que  leia  um  texto  qualquer  (arquivo  no  formato  .txt)  e  imprima,  
 //  em  ordem  alfabética, as  palavras  e  a  sua  freqüência  no  texto.
-	
 	
 //	1.pseq -  Pesquisa  Sequencial
 
@@ -37,7 +53,4 @@ public class PesquisaSequencial implements Pesquisa {
 //	4.haberto - Hash -  endereçamento  aberto - Área de Reserva
 	
 //  5.hlista - Hash -  lista  encadeada
-
-// ^[a-z]{0,20}$
-	
 }

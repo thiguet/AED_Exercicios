@@ -1,22 +1,28 @@
+import java.util.List;
 
-public class PesquisaBinaria implements Pesquisa {
+public class PesquisaBinaria extends AbstractSearch {
+
+	PesquisaBinaria(String fileName) {
+		super(fileName);
+	}
 
 	@Override
-	public boolean pesquisar(String nome) {
+	public boolean exists(String word) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void inserir(String palavra) {
+	public void add(List<String> content) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void imprimir() {
+	public void alphabeticalPrint() {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

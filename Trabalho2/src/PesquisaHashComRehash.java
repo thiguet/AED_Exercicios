@@ -1,27 +1,37 @@
-import model.Arvore;
+import java.util.List;
 
-public class PesquisaHashComRehash implements Pesquisa {
-	public Arvore areaReserva;
+import model.Tree;
+
+public class PesquisaHashComRehash extends AbstractSearch {
 	
-	PesquisaHashComRehash() {
+	PesquisaHashComRehash(String fileName) {
+		super(fileName);
 	}
+
+	public Tree areaReserva;
 	
 	@Override
-	public boolean pesquisar(String nome) {
+	public boolean exists(String word) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void inserir(String palavra) {
+	public void add(List<String> content) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void imprimir() {
+	public void alphabeticalPrint() {
 		// TODO Auto-generated method stub
 		
 	}
 
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

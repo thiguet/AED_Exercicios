@@ -3,7 +3,7 @@ import java.util.List;
 
 public class BinarySearch extends AbstractSearch {
 
-	BinarySearch(String fileName) {
+	public BinarySearch(String fileName) {
 		super(fileName);
 	}
 

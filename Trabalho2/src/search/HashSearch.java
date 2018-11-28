@@ -11,7 +11,7 @@ public class HashSearch extends AbstractSearch {
 	private Word[] table;
 	private Tree reservedArea;
 	
-	HashSearch(String fileName) {
+	public HashSearch(String fileName) {
 		super(fileName);
 		table = new Word [MAX_HASH_ENTRIES];	
 	}

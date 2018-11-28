@@ -3,7 +3,7 @@ import java.util.List;
 
 public class LinkedListSearch extends AbstractSearch {
 	
-	LinkedListSearch(String fileName) {
+	public LinkedListSearch(String fileName) {
 		super(fileName);
 	}
 

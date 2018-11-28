@@ -10,7 +10,7 @@ import util.Config;
 public class SequencialSearch extends AbstractSearch {
 	private Word[] memory;
 
-	SequencialSearch (String fileName) {
+	public SequencialSearch (String fileName) {
 		super(fileName);
 		this.memory = new Word [Config.TAM_MAX_PALAVRAS];
 	}
@@ -18,7 +18,7 @@ public class SequencialSearch extends AbstractSearch {
 	@Override
 	public boolean exists (String word) {
 		for(int i = 0; i < memory.length ; i++) {
-			if(memory[i].getWord().equals(word))
+			if(memory[i] != null && memory[i].getWord().equals(word))
 				return true;
 		}
 		
@@ -26,21 +26,26 @@ public class SequencialSearch extends AbstractSearch {
 	}
 
 	@Override
-	public void add (List<String> content) {
+	public void add(List<String> content) {
 		Word word;
 		
 		for(int i = 0 ; i < content.size() && i < memory.length ; i++) {
-			word = new Word (content.get(i));
-			this.nrKeysCompared++;
+			this.nrAttrNeeded++;
+			String str = content.get(i);
 			
-			if(exists(memory[i].getWord())) {
+			this.nrKeysCompared++;
+			if(exists(str)) {
 				for(Word aux : memory) {
 					this.nrKeysCompared++;
-					if(aux.getWord().equals(word.getWord())) 
+					if(aux != null && aux.getWord().equals(str)) 
 						aux.plusFrequency();
 				}				
 			} else {
+				word = new Word (str);
+				this.nrAttrNeeded++;
+				
 				memory[i] = word;
+				this.nrAttrNeeded++;
 			}	
 		}
 	}
@@ -56,15 +61,23 @@ public class SequencialSearch extends AbstractSearch {
 		ISort<Word> order = new InsertionSort<Word>();
 		
 		for(Word word : this.memory) {
-			words.add(word);
+			if(word != null)
+				words.add(word);
 		}
 		
 		order.sort(words);
+		
+		int i = 0;
+		for(Word word : words) {
+			memory[i] = word;
+			i++;
+		}
 	}
 	
 	private void print () {
 		for(int i = 0 ; i < this.memory.length ; i++) {
-			Config.print(this.memory[i].getWord());
+			if(this.memory[i] != null )	
+				Config.print(this.memory[i].getWord().toString());
 		}
 	}
 	

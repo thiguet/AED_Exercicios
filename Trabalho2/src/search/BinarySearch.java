@@ -1,28 +1,25 @@
+package search;
 import java.util.List;
 
-public class PesquisaBinaria extends AbstractSearch {
+public class BinarySearch extends AbstractSearch {
 
-	PesquisaBinaria(String fileName) {
+	BinarySearch(String fileName) {
 		super(fileName);
 	}
 
 	@Override
 	public boolean exists(String word) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void add(List<String> content) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void alphabeticalPrint() {
+	public void printAlphabetical() {
 		// TODO Auto-generated method stub
 		
 	}
-
-
 }

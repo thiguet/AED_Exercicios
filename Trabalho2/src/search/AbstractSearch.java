@@ -1,3 +1,5 @@
+package search;
+import util.Config;
 import util.IReadFile;
 import util.ReadFile;
 import java.util.List;
@@ -5,12 +7,22 @@ import java.util.List;
 public abstract class AbstractSearch implements Search {
 	protected int nrKeysCompared;
 	protected int nrAttrNeeded;
+	protected Long insertionTime;
 	protected IReadFile fileManager;
 	
 	AbstractSearch(String fileName) {
 		this.nrAttrNeeded = 0;
 		this.nrKeysCompared = 0;
+		this.insertionTime = 0L;
 		this.fileManager = new ReadFile(fileName);
+	}
+		
+	public int getInsertionTime() {
+		return nrKeysCompared;
+	}
+	
+	public void setInsertionTime( Long insertionTime) {
+		this.insertionTime = insertionTime;
 	}
 	
 	public int getNrKeysCompared() {
@@ -35,8 +47,23 @@ public abstract class AbstractSearch implements Search {
 	
 	public void run() {
 		List<String> content = this.fileManager.getFileContents();
+		
+		this.insertionTime = System.currentTimeMillis();
 		this.add(content);
-		this.alphabeticalPrint();
+		this.insertionTime = System.currentTimeMillis() - this.insertionTime;
+		
+		this.printAlphabetical();
+		this.printInfo();
+	}
+	
+	protected void printInfo() {
+		String info = "";
+
+		info += "\nKeys Compared = " + this.nrKeysCompared + "\n";
+		info += "Attribution Operations = " + this.nrAttrNeeded + "\n";
+		info += "Insertion Time = " + this.insertionTime + "\n";
+		
+		Config.print(info);
 	}
 	
 	/*

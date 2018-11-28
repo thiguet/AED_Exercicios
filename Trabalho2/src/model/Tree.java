@@ -8,9 +8,12 @@ public class Tree {
 	private Node root;
 	private int size;
 	private int nrComparations;
+	private int nrAttribs;
 	
-	Tree() {
+	public Tree() {
 		this.root = null;
+		this.nrComparations = 0;
+		this.nrAttribs = 0;
 	}
      
     public boolean find(String str) {
@@ -73,27 +76,29 @@ public class Tree {
     }
  
     public void add(String word) {
-    	nrComparations = 0;
         root = add(root, word);
+        this.nrAttribs++;
     }
  
     private Node add(Node node, String word) {
-    	if (node == null) {
-            node = new Node (word);
-            this.size++;
-        } else {
-        	this.nrComparations++;
+    	if (node == null) { 
+    		node = new Node (word);
+    		this.nrAttribs++;
+    	    this.size++;
+    	} else {
+    		this.nrComparations++;
         	int cmpWords = node.getWord().compareTo(word);
         	
         	this.nrComparations++;
-        	if (cmpWords < 0) {
-                node.left = add(node.left, word);
+        	if(cmpWords == 0 ) {
+        		node.getWord().plusFrequency();
             } else if (cmpWords < 0) {
+                node.left = add(node.left, word);
+                this.nrAttribs++;
+        	} else if (cmpWords > 0) {
                 node.right = add(node.right, word);
-            } else {
-            	// Increase the frequency of the word.
-            	node.getWord().plusFrequency();
-            }
+                this.nrAttribs++;
+        	}
         }
          
         return node;
@@ -101,6 +106,9 @@ public class Tree {
 
 	public int getSize() {
 		return size;
-	} 
-	
+	}
+
+	public int getNrAttribs() {
+		return this.nrAttribs;
+	}
 }

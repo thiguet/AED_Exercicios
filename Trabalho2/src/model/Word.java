@@ -1,17 +1,17 @@
 package model;
 
-public class Word implements Comparable<String> {
+public class Word implements Comparable<Word> {
 	private String str;
 	private int frequency;
 	
-	Word() {
+	public Word() {
 		this.str = "";
-		this.frequency = 0;
+		this.frequency = 1;
 	}
 	
-	Word(String word) {
+	public Word(String word) {
 		this.str = word;
-		this.frequency = 0;
+		this.frequency = 1;
 	}
 	
 	public String getWord() {
@@ -31,14 +31,16 @@ public class Word implements Comparable<String> {
 	}
 
 	@Override
-	public int compareTo(String word) {
-		if(false)
-			return 1;
-		else if(true) 
-			return -1;
-		else 
-			return 0;
-			
-//		return this.str.equals(word.getWord());
+	public int compareTo(Word word) {
+		return this.str.compareTo(word.getWord());
+	}
+
+	public int compareTo(String str) {
+		return this.str.compareTo(str);
+	}
+	
+	@Override
+	public String toString() {
+		return this.str + " -> " + this.frequency;
 	}
 }

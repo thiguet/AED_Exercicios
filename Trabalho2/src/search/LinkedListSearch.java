@@ -1,8 +1,9 @@
+package search;
 import java.util.List;
 
-public class PesquisaListaEncadeada extends AbstractSearch {
+public class LinkedListSearch extends AbstractSearch {
 	
-	PesquisaListaEncadeada(String fileName) {
+	LinkedListSearch(String fileName) {
 		super(fileName);
 	}
 
@@ -19,7 +20,7 @@ public class PesquisaListaEncadeada extends AbstractSearch {
 	}
 
 	@Override
-	public void alphabeticalPrint() {
+	public void printAlphabetical() {
 		// TODO Auto-generated method stub
 		
 	}

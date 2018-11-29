@@ -56,7 +56,7 @@ public class SequencialSearch extends AbstractSearch {
 		this.print();
 	}
 	
-	private void sortAlphabetical () {
+	private void sortAlphabetical () {	
 		List<Word> words = new ArrayList<Word> ();
 		ISort<Word> order = new InsertionSort<Word>();
 		
@@ -75,9 +75,8 @@ public class SequencialSearch extends AbstractSearch {
 	}
 	
 	private void print () {
-		for(int i = 0 ; i < this.memory.length ; i++) {
-			if(this.memory[i] != null )	
-				Config.print(this.memory[i].getWord().toString());
+		for(int i = 0 ; i < this.memory.length && this.memory[i] != null ; i++) {
+			Config.print(this.memory[i].toString());
 		}
 	}
 	

@@ -1,21 +1,14 @@
 package model;
 
-public class Node {
-	public Node left;
-	public Node right;
-	private Word word;
-	
-	Node() {}
-	
-	Node(String str) {
-		this.word = new Word(str);
-	}
-	
+public abstract class Node {
+	protected Word word;
+
 	public Word getWord() {
 		return word;
 	}
-	
+
 	public void setWord(Word word) {
 		this.word = word;
 	}
+	
 }

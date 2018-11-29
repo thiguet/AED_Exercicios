@@ -1,11 +1,12 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import util.Config;
 
 public class Tree {
-	private Node root;
+	private TreeNode root;
 	private int size;
 	private int nrComparations;
 	private int nrAttribs;
@@ -20,7 +21,7 @@ public class Tree {
         return find(root, str);
     }
     
-	public boolean find(Node node, String word) {
+	public boolean find(TreeNode node, String word) {
         boolean resp;
         int cmpWord = 0;
         
@@ -44,7 +45,7 @@ public class Tree {
 		return null;
 	}
 
-	public Node getRoot() {
+	public TreeNode getRoot() {
 		return root;
 	}
 
@@ -56,7 +57,7 @@ public class Tree {
         return getHeight(root);
     }
      
-    private int getHeight(Node node){
+    private int getHeight(TreeNode node){
         if(node == null)
             return 0;
         else 
@@ -67,11 +68,11 @@ public class Tree {
         print(root);
     }
  
-    private void print(Node node) {
+    private void print(TreeNode node) {
         if (node != null) {
-        	print(node.left); 
+        	print(node.right); 
             Config.print(node.getWord().toString());
-            print(node.right); 
+            print(node.left); 
         }
     }
  
@@ -80,9 +81,9 @@ public class Tree {
         this.nrAttribs++;
     }
  
-    private Node add(Node node, String word) {
+    private TreeNode add(TreeNode node, String word) {
     	if (node == null) { 
-    		node = new Node (word);
+    		node = new TreeNode (word);
     		this.nrAttribs++;
     	    this.size++;
     	} else {
@@ -111,4 +112,20 @@ public class Tree {
 	public int getNrAttribs() {
 		return this.nrAttribs;
 	}
+	
+	public List<Word> toList() {
+		List<Word> words = new ArrayList<Word> ();
+
+		this.toList(root, words);
+		
+		return words;
+	}
+	
+	private void toList(TreeNode node, List<Word> words) {
+		if(node != null) {
+			toList(node.left, words);
+			words.add(node.getWord());
+			toList(node.right, words);
+		}
+	}	
 }

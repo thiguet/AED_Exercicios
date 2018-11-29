@@ -1,28 +1,32 @@
 package search;
 import java.util.List;
 
+import model.LinkedList;
+
 public class LinkedListSearch extends AbstractSearch {
+	private LinkedList words;
 	
 	public LinkedListSearch(String fileName) {
 		super(fileName);
+		words = new LinkedList ();
 	}
 
 	@Override
 	public boolean exists(String word) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void add(List<String> content) {
-		// TODO Auto-generated method stub
-		
+		content .stream()
+				.forEach( str -> words.add(str));	
+		this.nrAttrNeeded = this.words.getNrAttribs();
+		this.nrKeysCompared = this.words.getNrComps();
 	}
 
 	@Override
 	public void printAlphabetical() {
-		// TODO Auto-generated method stub
-		
+		this.words.print();
 	}
 
 }
